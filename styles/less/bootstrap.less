@@ -224,7 +224,7 @@ footer {
     
 #new-idea {
     margin: 0 0 20px 0; float: left; position: relative; clear: left; padding: 0 0 20px 0; background: darken(@baseColor, 10%); border: 1px solid darken(@baseColor, 15%); box-shadow: (0 0 1px rgba(255,255,255,.3)); border-radius: (4px);
-    h3 { *width: 450px; margin: 20px 30px 0 30px; padding: 0; line-height: 1em; font-size: 1.2em; color: lighten(@complement, 15%); }
+    h3 { *width: 450px; margin: 20px 30px 0 30px; padding: 0; line-height: 1em; font-size: 1.5em; font-weight: normal; color: lighten(@complement, 15%); }
     fieldset { margin: 0 30px 0 30px;
         input { width: 510px; margin: 0 0 10px 0;  }
         textarea { width: 510px; }
@@ -292,19 +292,44 @@ footer {
       border-top: 1px solid rgba(0, 0, 0, 0.6);
       height: 1px; }
 
-header #t7_timer {
-  padding: 0;
+#t7_timer {
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px dotted darken(@baseColor, 10%);
   background: transparent;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  margin-top: -5px;
-  margin-right: -5px; }
+  .box-shadow(0 0 0);
+  .border-radius(0);
+  margin: 0;
+  color: @neutral;
+  }
+  
+  #t7_vals {
+      float: left;
+      position: relative;
+      margin: 5px 0 5px 125px;
+  }
   
   .btn {
       #gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%));
       &.primary { #gradient > .vertical-three-colors(@complement, @complement, 25%, darken(@complement, 10%)); }
   }
+  
+  
+  .auth { float: right; list-style-type: none; padding: 0;
+      li { float: left; position: relative; margin: 0 0 4px 5px; padding: 0;
+          a { float: left; position: relative; display: block; padding: 6px 10px 5px 32px !important; .border-radius(3px); color: @white; .box-shadow(inset 0 1px 0 rgba(255,255,255,.2));
+              &:hover { text-decoration: none; } 
+              span { position: absolute; top: 5px; left: 5px; width: 21px; height: 21px; background: url(../../img/shapes.png);  }}
+          &.twitter a { background: #3B9FCE; #gradient > .vertical(#3B9FCE, #3183AA); border: 1px solid #2A779B; border-bottom: 2px solid #2A779B;
+              &:hover { background: #62B2D7; #gradient > .vertical(#62B2D7, #3183AA); }
+              span { background-position: 0; }}
+          &.facebook a { background: #7086B6; #gradient > .vertical(#7086B6, #4865A1); border: 1px solid #314D8C; border-bottom: 2px solid #314D8C; 
+              &:hover { background: #8C9EC4; #gradient > .vertical(#8C9EC4, #4865A1); }
+              span { background-position: 20px; }}}
+  }
+  
+  .countdown-text { width: 100%; float: left; position: relative; text-align: center; }
+  
+  .alert-message.tip { width: 330px; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -35px; .close { color: #000; }
+      i { width: 17px; height: 10px; background: url(../../img/alert-point.png) no-repeat; display: block; position: absolute; right: 130px; top: -10px; }}
+  .alert-message.tip p { font-size: 11px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; }
