@@ -164,7 +164,7 @@ a:hover { text-decoration: none; color: lighten(@complement, 15%); }
 }
 
 .meta { 
-    width: 100%; float: left; position: relative; clear: left; background: url(../../img/split.png) repeat-x darken(@neutral, 5%); border-top: 1px solid lighten(@neutral, 3%); color: @gray; font-size: 12px; -moz-border-radius-bottomright: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-radius: px px 4px 4px; border-radius: px px 4px 4px;
+    width: 100%; float: left; position: relative; clear: left; background: url(../../img/split.png) repeat-x darken(@neutral, 5%); border-top: 1px solid lighten(@neutral, 3%); color: @gray; font-size: 12px; -moz-border-radius-bottomright: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-radius: px px 4px 4px; border-radius: px px 4px 4px; *margin-bottom: -15px;
     .avatar { float: left; position: relative; margin: 10px 8px; }
     .author { float: left; position: relative; margin: 13px 0; font-size: 12px; }
 }
@@ -294,6 +294,7 @@ footer {
 
 #t7_timer {
   width: 100%;
+  *width: 520px;
   padding: 10px 0;
   border-top: 1px dotted darken(@baseColor, 10%);
   background: transparent;
@@ -304,9 +305,11 @@ footer {
   }
   
   #t7_vals {
-      float: left;
       position: relative;
+      clear: left;
       margin: 5px 0 5px 125px;
+      *margin: 0 0 5px 140px;
+      *padding-bottom: 5px;
   }
   
   .btn {
@@ -332,4 +335,4 @@ footer {
   
   .alert-message.tip { width: 330px; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -35px; .close { color: #000; }
       i { width: 17px; height: 10px; background: url(../../img/alert-point.png) no-repeat; display: block; position: absolute; right: 130px; top: -10px; }}
-  .alert-message.tip p { font-size: 11px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; }
+  .alert-message.tip p { font-size: 11px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; *padding-top: 5px; *font-size: 12px; }
