@@ -1,0 +1,71 @@
+        <ul class="breadcrumb">
+          <li><a href="{{rusic.permalink}}" title="link back to {{rusic.title}} homepage">&#8617; back to all ideas</a></li>
+        </ul>
+        
+        <div id="" class="entry">
+            <h1>{{idea.title}}</h1>
+            
+            <div class="meta">
+                <img src="{{idea.user.image_url}}" alt="avatar for {{%idea.user%}}" width="25" height="25" class="avatar" />
+                <span class="author">thought up by {{idea.user.nickname}} days ago</span>
+                <div class="actions">
+                    <ul>
+                        <li class="first"><a href="{{idea.like_link}}" data-method="post" class="action-like">like <strong>({{%idea.likes%}})</strong></a></li>
+                        <li class="last"><a href="#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>(3)</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content">
+                {{idea.content | markdown}}
+            </div>
+            
+            {% if idea.interested_users != empty %}
+            <div class="interest">
+                <h3>people interested in this</h3>
+                <ul class="interested-people">
+                {% for user in idea.interested_users %}
+                    <li><img src="http://placehold.it/30x30" alt="#" class="avatar" /></li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            
+            <div id="comments">
+                <h3>comments</h3>
+                {% if current_user %}<a href="#comments-form" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% else %}<a href="#comments-auth" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% endif %}
+                {% if idea.comments != empty %}
+                <ol>
+                    {% for comment in idea.comments %}
+                    <li><img src="{{comment.user.image_url}}" alt="avatar for {{%comment.user.name%}}" width="25" height="25" class="avatar" /><div class="author">{{comment.created_at | date: "%b %m %Y"}} <strong><strong>{{comment.user.name}}</strong></strong> said...</div><div class="comment">{{comment.body | markdown}}</div></li>
+                    {% endfor %}
+                <ol>
+                {% else %}
+                <ol>
+                    <li><p>Nobody has commented here yet, maybe you could be the first?</p></li>
+                </ol>
+                {% endif %}
+                
+                {% if current_user %}
+                <div id="comments-form">
+                    <h3>add a comment</h3>
+                    <form action="{{idea.permalink}}/comments" method="post" charset="utf-8">
+                        <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
+                        <div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
+                        <input type="submit" name="submit" value="post comment" class="btn primary" />
+                    </form>
+                </div>
+                {% else %}
+                <div id="comments-auth">
+                    <h3>add a comment</h3>
+                    <div class="alert-message tip"><i></i><p>login with twitter or facebook to add comments</p></div>
+                    <ul class="auth">
+                        <li class="twitter"><a href="/auth/twitter" class="button"><span></span>Twitter</a></li>
+                        <li class="facebook"><a href="/auth/facebook" class="button"><span></span>Facebook</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+            
+            <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{%idea.likes%}}<br /><span class="like-label">likes<span></a>
+        </div>
