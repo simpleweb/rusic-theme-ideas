@@ -18,19 +18,10 @@
     <script src="/javascripts/less.js"></script>
     
     <!-- Scripts -->
-<<<<<<< HEAD
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js" type="text/javascript"></script>
-    <script src="/assets/jquery.countdown.js"></script>
-    <script src="/javascripts/scripts.js"></script>
-=======
->>>>>>> dcd9801596aef2fdf6c57846c4ce137f35933b64
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     {{ content_for_header }}
     <script src="/assets/jquery.countdown.min.js"></script>
-    <script src="{{asset_url}}/javascripts/scripts.js"></script>
-    
-      
-    </script>
+    <script src="/javascripts/scripts.js"></script>
     
     <!-- Fav & touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -70,13 +61,9 @@
             </div>
             {% endif %}
         
-<<<<<<< HEAD
-            <time id="expires-at" datetime="{{rusic.expires_at}}"></time>
-=======
             <!-- <div data-expires_at="2011-08-27T15:10:00Z" id="timer" class="hasCountdown"><div id="t7_timer"><span class="countdown-text">you have</span><div id="t7_vals"><div id="t7_d" class="t7_numbs">000<span></span></div><div id="t7_h" class="t7_numbs">00<span></span></div><div id="t7_m" class="t7_numbs">00<span></span></div><div id="t7_s" class="t7_numbs">00<span></span></div></div><span class="countdown-text"><span class="countdown-text">left to submit an idea</span></span></div></div> -->
             
             <time id="expires-at" datetime="{{rusic.expires_at}}">{{rusic.expires_at}}</time>
->>>>>>> dcd9801596aef2fdf6c57846c4ce137f35933b64
             
             <div id="user-actions">
                 {% if current_user %}
