@@ -46,44 +46,44 @@
     
     @font-face {
         font-family: 'DroidSerifRegular';
-        src: url('/styles/fonts/DroidSerif-Regular-webfont.eot');
-        src: url('/styles/fonts/DroidSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-             url('/styles/fonts/DroidSerif-Regular-webfont.woff') format('woff'),
-             url('/styles/fonts/DroidSerif-Regular-webfont.ttf') format('truetype'),
-             url('/styles/fonts/DroidSerif-Regular-webfont.svg#DroidSerifRegular') format('svg');
+        src: url('/stylesheets/fonts/DroidSerif-Regular-webfont.eot');
+        src: url('/stylesheets/fonts/DroidSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('/stylesheets/fonts/DroidSerif-Regular-webfont.woff') format('woff'),
+             url('/stylesheets/fonts/DroidSerif-Regular-webfont.ttf') format('truetype'),
+             url('/stylesheets/fonts/DroidSerif-Regular-webfont.svg#DroidSerifRegular') format('svg');
         font-weight: normal;
         font-style: normal;
     }
     
     @font-face {
         font-family: 'OpenSansRegular';
-        src: url('/styles/fonts//styles/fonts/OpenSans-Regular-webfont.eot');
-        src: url('/styles/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-             url('/styles/fonts/OpenSans-Regular-webfont.woff') format('woff'),
-             url('/styles/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
-             url('/styles/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+        src: url('/stylesheets/fonts/OpenSans-Regular-webfont.eot');
+        src: url('/stylesheets/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('/stylesheets/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+             url('/stylesheets/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+             url('/stylesheets/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
         font-weight: normal;
         font-style: normal;
     }
     
     @font-face {
         font-family: 'OpenSansItalic';
-        src: url('/styles/fonts/OpenSans-Italic-webfont.eot');
-        src: url('/styles/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-             url('/styles/fonts/OpenSans-Italic-webfont.woff') format('woff'),
-             url('/styles/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
-             url('/styles/fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
+        src: url('/stylesheets/fonts/OpenSans-Italic-webfont.eot');
+        src: url('/stylesheets/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+             url('/stylesheets/fonts/OpenSans-Italic-webfont.woff') format('woff'),
+             url('/stylesheets/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+             url('/stylesheets/fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
         font-weight: normal;
         font-style: normal;
     }
     
     @font-face {
         font-family: 'OpenSansSemibold';
-        src: url('/styles/fonts/OpenSans-Semibold-webfont.eot');
-        src: url('/styles/fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
-             url('/styles/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
-             url('/styles/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
-             url('/styles/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
+        src: url('/stylesheets/fonts/OpenSans-Semibold-webfont.eot');
+        src: url('/stylesheets/fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+             url('/stylesheets/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+             url('/stylesheets/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+             url('/stylesheets/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
         font-weight: normal;
         font-style: normal;
     }
@@ -96,7 +96,7 @@ html {
 }
 
 body {
-    background: url(../../img/background.png) no-repeat top center @baseColor;
+    background: url(/images/background.png) no-repeat top center @baseColor;
     font-family: 'DroidSerifRegular';
     color: @grayDark;
 }
@@ -112,6 +112,8 @@ p {
 a { color: @complement; }
 a:hover { text-decoration: none; color: lighten(@complement, 15%); }
 
+textarea { resize: vertical; }
+
 #wrapper {
     float: left; position: relative;
     background: @white;
@@ -121,7 +123,7 @@ a:hover { text-decoration: none; color: lighten(@complement, 15%); }
     box-shadow: (0 0 1px rgba(255,255,255,.8));
 }
 
-#mast {
+#mast { width: 522px;
     margin: 30px 0 30px 0; padding: 0 30px 0 30px; text-align: center;
     h1 { display: inline-block; padding: 10px 15px; border-bottom: 2px solid darken(@baseColor, 15%); color: @white; font-size: 2.5em; text-transform: uppercase; font-weight: normal; 
         a { color: @white; }
@@ -134,10 +136,10 @@ a:hover { text-decoration: none; color: lighten(@complement, 15%); }
 .entry {
     width: 520px; float: left; position: relative; clear: left; border-radius: (3px); border: 1px solid darken(@neutral, 10%);
     background: @neutral;
-    h1 { margin: 15px 20px; padding: 0 85px 0 0; font-weight: normal; }
+    h1 { margin: 25px 20px 30px 20px; padding: 0 85px 0 0; font-size: 2.5em; font-weight: normal; }
     .content { margin: 15px 20px; }
-    .interest { width: 475px; margin: 15px 20px; border-top: 2px solid @complement; }
-    .comments { margin: 15px 20px; padding: 0; border-top: 2px solid @complement; }
+    .interest { width: 480px; margin: 10px 20px 10px 20px; border-top: 2px solid @complement; }
+    #comments { margin: 15px 20px; padding: 0; border-top: 2px solid @complement; }
     .comment-count { width: 55px; height: 40px; padding: 18px 5px 20px 5px; position: absolute; top: -5px; right: 12px; background: @baseColor; font-size: 25px; text-align: center; color: @white;  box-shadow: (0 2px 0 darken(@neutral, 18%));
     a { color: @white; }}
 }
@@ -148,23 +150,33 @@ a:hover { text-decoration: none; color: lighten(@complement, 15%); }
     li { float: left; position: relative; margin: 0 5px 0 0; }}
 }
 
-.comments {
+#comments { width: 480px;
     float: left; position: relative; clear: left;
     h3 { clear: left; margin: 0; padding: 5px 0 0 0; font-size: 1.3em; line-height: 2em; }
     .btn { position: absolute; top: 10px; right: 0; }
     ol { 
-        width: 475px; margin: 0; padding: 0; list-style-type: none;
-        li { width: 100%; float: left; position: relative; margin: 15px 0 0 0; padding: 0 0 15px 0; clear: left; border-bottom: 1px dotted darken(@neutral, 15%); }
+        width: 480px; margin: 0; padding: 0; list-style-type: none;
+        li { width: 100%; float: left; position: relative; margin: 15px 0 0 0; padding: 15px 0 0 0; clear: left; border-top: 1px dotted darken(@neutral, 15%); }
         .meta { float: left; position: relative; margin: 5px 0 0 0; background: transparent; }
         .avatar { float: left; position: relative; margin: 0 10px 0 0; }
         .author { margin: 2px 0 0 0; }
-        .comment { float: left; position: relative; margin: 10px 0 0 35px; padding: 0 0 0 10px; border-left: 2px solid darken(@neutral, 15%); }
+        .comment { float: left; position: relative; clear: left; margin: 10px 0 0 35px; padding: 0 0 0 10px; border-left: 2px solid darken(@neutral, 15%); }
         .last { border-bottom: none; }
     }
 }
 
+#comments-auth { width: 480px; float: left; position: relative; clear: left; margin: 30px 0 15px 0; padding: 0; border-top: 2px solid @complement; 
+    h3 { margin-bottom: 5px; }
+    .auth { margin: 0; padding: 0;
+        li { width: auto; float: left; position: relative; clear: none; margin: 0 0 0 5px; padding: 0; border: none; }
+    }
+    .tip { width: 235px; float: left; position: relative; margin: 0; left: 0; top: 0;
+        p { font-size: 12px; text-align: left; }
+        i { width: 10px; height: 17px; right: -10px; top: 7px; background: url(/images/alert-point-alt.png) 0 0 no-repeat; }}
+}
+
 .meta { 
-    width: 100%; float: left; position: relative; clear: left; background: url(../../img/split.png) repeat-x darken(@neutral, 5%); border-top: 1px solid lighten(@neutral, 3%); color: @gray; font-size: 12px; -moz-border-radius-bottomright: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-radius: px px 4px 4px; border-radius: px px 4px 4px; *margin-bottom: -15px;
+    width: 100%; float: left; position: relative; clear: left; background: url(/images/split.png) repeat-x darken(@neutral, 5%); border-top: 1px solid lighten(@neutral, 3%); color: @gray; font-size: 12px; -moz-border-radius-bottomright: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px; *margin-bottom: -15px;
     .avatar { float: left; position: relative; margin: 10px 8px; }
     .author { float: left; position: relative; margin: 13px 0; font-size: 12px; }
 }
@@ -179,6 +191,7 @@ header, footer {
 
 footer {
     clear: left; width: 100%;
+    p { text-align: center; }
 }
 
 .actions {
@@ -189,10 +202,10 @@ footer {
     
     a { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px;
     &:hover { text-decoration: none; } }    
-    .action-like { background: url(../../img/button-like.png) 0 2px no-repeat;
-    &:hover { background: url(../../img/button-like-hover.png) 0 2px no-repeat; }}
-    .action-discuss { background: url(../../img/button-discuss.png) 0 3px no-repeat;
-    &:hover { background: url(../../img/button-discuss-hover.png) 0 3px no-repeat; }}
+    .action-like { background: url(/images/button-like.png) 0 2px no-repeat;
+    &:hover { background: url(/images/button-like-hover.png) 0 2px no-repeat; }}
+    .action-discuss { background: url(/images/button-discuss.png) 0 3px no-repeat;
+    &:hover { background: url(/images/button-discuss-hover.png) 0 3px no-repeat; }}
 }
 
 #user-bar {
@@ -201,23 +214,24 @@ footer {
     #welcome-message { float: left; position: relative; margin: 5px 0 0 0; }
 }
 
-.avatar { border-radius: (3px); }
+.avatar { border-radius: (2px); }
 
 .home {
-    .entry { margin: 0 0 50px 0; }
+    .entry { margin: 0 0 30px 0; }
 }
 
 .post {
     .meta { width: 500px; *height: 45px; margin: 0 0 20px 0; padding: 0 10px 0 10px; background: transparent; border-top: 1px dotted darken(@neutral, 12%); border-bottom: 1px dotted darken(@neutral, 12%); }
 }
 
-#comments-form {
+#comments-form { width: 480px;
     float: left; position: relative; clear: left; margin: 20px 0 0 0; padding: 0 0 0 0; border-top: 2px solid @complement;
     h3 { margin-bottom: 5px; }
     fieldset { margin: 0; padding: 0; }
     label { text-align: left; }
-    textarea { width: 465px; height: 100px; }
-    .btn { float: right; position: relative; clear: left; margin: 0 0 10px 0; }
+    textarea { width: 470px; height: 100px; margin-left: 0; }
+    .input { margin-left: 0; }
+    .btn { float: right; position: relative; margin: 0 0 10px 0; }
     }
     
     .like-label { font-size: .5em; }
@@ -228,7 +242,7 @@ footer {
     fieldset { margin: 0 30px 0 30px;
         input { width: 510px; margin: 0 0 10px 0;  }
         textarea { width: 510px; }
-        .submit { float: right; position: relative; margin: 10px 0 0 0; }
+        .submit { float: right; position: relative; margin: 8px 0 0 0; }
     }
 }
 
@@ -322,7 +336,7 @@ footer {
       li { float: left; position: relative; margin: 0 0 4px 5px; padding: 0;
           a { float: left; position: relative; display: block; padding: 6px 10px 5px 32px !important; .border-radius(3px); color: @white; .box-shadow(inset 0 1px 0 rgba(255,255,255,.2));
               &:hover { text-decoration: none; } 
-              span { position: absolute; top: 5px; left: 5px; width: 21px; height: 21px; background: url(../../img/shapes.png);  }}
+              span { position: absolute; top: 5px; left: 5px; width: 21px; height: 21px; background: url(/images/shapes.png);  }}
           &.twitter a { background: #3B9FCE; #gradient > .vertical(#3B9FCE, #3183AA); border: 1px solid #2A779B; border-bottom: 2px solid #2A779B;
               &:hover { background: #62B2D7; #gradient > .vertical(#62B2D7, #3183AA); }
               span { background-position: 0; }}
@@ -334,8 +348,8 @@ footer {
   .countdown-text { width: 100%; float: left; position: relative; text-align: center; }
   
   .alert-message.tip { width: 330px; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -35px; .close { color: #000; }
-      i { width: 17px; height: 10px; background: url(../../img/alert-point.png) no-repeat; display: block; position: absolute; right: 130px; top: -10px; }}
-  .alert-message.tip p { font-size: 11px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; *padding-top: 5px; *font-size: 12px; }
+      i { width: 17px; height: 10px; background: url(/images/alert-point.png) no-repeat; display: block; position: absolute; right: 130px; top: -10px; }}
+  .alert-message.tip p { font-size: 12px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; *padding-top: 5px; *font-size: 12px; text-align: center; }
   
 
 .slidingDiv {
@@ -343,5 +357,49 @@ footer {
 }
 
 .slide {
-	display:none;
+	float: left; position: relative; clear: left; margin-top: -20px; display:none;
+	.btn { float: left; position: relative; clear: left; margin: 0 0 20px 20px; font-size: 11px; }
+}
+
+#new-idea form .clearfix {
+    margin-bottom: 0;
+}
+
+#new-idea form .input {
+    margin-left: 0;
+}
+
+#new-idea form .clearfix {
+    margin-bottom: 0;
+}
+
+#new-idea .input {
+    margin-left: 0 !important;
+}
+
+#new-idea fieldset input.submit {
+    width: auto;
+}
+
+h1.show {
+    cursor: pointer;
+    color: @complement;
+}
+
+#new-idea fieldset .checkarea { color: @neutral; margin-top: 12px; float: left; font-family: 'OpenSansRegular';
+    input { width: auto; margin-right: 10px; }
+}
+
+#comments-form .checkarea { margin-top: 12px; float: left; font-family: 'OpenSansRegular';
+    input { width: auto; margin-right: 5px; }
+}
+
+
+
+
+.alert-message {
+    float: left;
+    position: relative;
+    width: 490px;
+    margin: 5px 0 5px 0;
 }
