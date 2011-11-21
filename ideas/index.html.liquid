@@ -1,37 +1,41 @@
-        {% for idea in rusic.ideas %}
-        <!-- ENTRY -->
-        <div class="entry">
-            <h1 class="show">{{%idea.title%}}</h1>
+{% for idea in space.ideas %}
+  <!-- ENTRY -->
+  <div class="entry">
+      <h1 class="show">{{ idea.title }}</h1>
 
-            <div class="slide">
-                <div class="content">
-                    {{idea.content | markdown}}
-                </div>
-                
-                {% if idea.interested_users != empty %}
-                <div class="interest">
-                    <h3>people interested in this</h3>
-                    <ul class="interested-people">
-                    {% for user in idea.interested_users %}
-                        <li><img src="http://placehold.it/30x30" alt="#" class="avatar" /></li>
-                    {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
-            </div>
-            
-            <div class="meta">
-                <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
-                <span class="author">thought up by {{idea.user.nickname}} 3 days ago</span>
-                <div class="actions">
-                    <ul>
-                        <li class="first"><a href="{{idea.like_link}}" data-method="post" class="action-like">like <strong>({{%idea.likes%}})</strong></a></li>
-                        <li class="last"><a href="{{idea.permalink}}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>(X)</strong></a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{%idea.likes%}}<br /><span class="like-label">likes<span></a>
-        </div>
-        {% endfor %}
+      <div class="slide">
+          <div class="content">
+              {{ idea.content | markdown }}
+          </div>
+
+          {% if idea.interested_users != empty %}
+          <div class="interest">
+              <h3>people interested in this</h3>
+              <ul class="interested-people">
+                {% for user in idea.interested_users %}
+                    <li>
+                      <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
+                        <img src="{{ user.image_url }}" alt="{{ user.nickname }}" class="avatar" />
+                      </a>
+                    </li>
+                {% endfor %}
+              </ul>
+          </div>
+          {% endif %}
+          <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
+      </div>
+
+      <div class="meta">
+          <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
+          <span class="author">thought up by {{ idea.user.nickname }} 3 days ago</span>
+          <div class="actions">
+              <ul>
+                  <li class="first"><a href="{{ idea.like_link }}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</strong></a></li>
+                  <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
+              </ul>
+          </div>
+      </div>
+
+      <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{ idea.likes }}<br /><span class="like-label">likes<span></a>
+  </div>
+{% endfor %}

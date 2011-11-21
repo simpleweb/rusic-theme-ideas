@@ -9,20 +9,25 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% if idea %}{{idea.title}} &middot; {{rusic.title}}{% else %}{{rusic.title}}{% endif %}</title>
+    <title>
+      {% if idea %}
+        {{idea.title}} &middot; {{space.title}}
+      {% else %}
+        {{space.title}}
+      {% endif %}
+    </title>
     <meta name="description" content="{{rusic.summary}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Less -->
-    <link rel="stylesheet/less" href="/stylesheets/ideas.less">
-    <script src="/javascripts/less.js"></script>
-    
+    <link rel="stylesheet" href="{{ asset_url }}/stylesheets/ideas.css">
+
     <!-- Scripts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     {{ content_for_header }}
     <script src="/assets/jquery.countdown.min.js"></script>
-    <script src="/javascripts/scripts.js"></script>
-    
+    <script src="{{ asset_url }}/javascripts/scripts.js"></script>
+
     <!-- Fav & touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -31,69 +36,73 @@
 
 </head>
 
-<body class="home">
-    
+<body class="{{ body_class }}">
+
     <div class="container">
-    
+
         <!-- Header -->
         <header id="mast">
-            <h1><a href="{{rusic.permalink}}" title="link to {{rusic.title}} homepage">{{rusic.title}}</a></h1>
-            
+            <h1><a href="{{space.permalink}}" title="link to {{space.title}} homepage">{{ space.title }}</a></h1>
+
             <div class="description">
-                {{rusic.summary | markdown}}
+                {{space.summary | markdown}}
             </div>
-            
+
             {% if error %}
             <div class="alert-message error">
             {{ error }}
             </div>
             {% endif %}
-            
+
             {% if alert %}
             <div class="alert-message warning">
             {{ alert }}
             </div>
             {% endif %}
-            
+
             {% if notice %}
             <div class="alert-message success">
             {{ notice }}
             </div>
             {% endif %}
-        
-            <!-- <div data-expires_at="2011-08-27T15:10:00Z" id="timer" class="hasCountdown"><div id="t7_timer"><span class="countdown-text">you have</span><div id="t7_vals"><div id="t7_d" class="t7_numbs">000<span></span></div><div id="t7_h" class="t7_numbs">00<span></span></div><div id="t7_m" class="t7_numbs">00<span></span></div><div id="t7_s" class="t7_numbs">00<span></span></div></div><span class="countdown-text"><span class="countdown-text">left to submit an idea</span></span></div></div> -->
-            
-            <!--<time id="expires-at" datetime="{{rusic.expires_at}}">{{rusic.expires_at}}</time>-->
-            
+
+            {% if space.expires_at %}
+              <div id="timer">
+                <span class="countdown-text">you have</span>
+                <time id="expires-at" datetime="{{space.expires_at}}">{{space.expires_at}}</time>
+                <span class="countdown-text">left to submit an idea</span>
+              </div>
+            {% endif %}
+
             <div id="user-actions">
                 {% if current_user %}
                 <!-- Logged in user bar -->
                 <div id="user-bar">
                     <img src="{{current_user.image_url}}" alt="Avatar for {{user.nickname}}" width="28" height="28" class="avatar" />
-                    <div id="welcome-message">Hey! welcome back <strong>{{current_user.nickname}}</strong> <a href="/signout">(logout)</a></div>
+                    <div id="welcome-message">Hey! welcome back <strong>{{current_user.nickname}}</strong> <a href="/auth/signout">(logout)</a></div>
                 </div>
-                
+
                 <nav id="navigation">
-                    <a title="Add new idea to {{rusic.title}}" class="btn primary showbtn">+ add new idea</a>
+                    <a title="Add new idea to {{space.title}}" class="btn primary showbtn">+ add new idea</a>
                 </nav>
                 {% else %}
                 <!-- Logged out user bar -->
                 <div id="user-bar">
                     <div id="welcome-message">Hey stranger! login to get involved</div>
                 </div>
-                
+
                 <ul class="auth">
                     <li class="twitter"><a href="/auth/twitter" class="button"><span></span>Twitter</a></li>
                     <li class="facebook"><a href="/auth/facebook" class="button"><span></span>Facebook</a></li>
                 </ul>
-                
+
                 <div class="alert-message tip">
                     <i></i><p>login with twitter or facebook to add new or like ideas</p>
                 </div>
                 {% endif %}
             </div>
         </header>
-        
+
         {% if current_user %}
         <!-- Add new idea form -->
         <form id="entry_form" method="post" action="/ideas" class="clearfix" enctype="multipart/form-data">
@@ -102,26 +111,26 @@
                 <fieldset>
                     <input class="span4" id="idea_title" name="idea[title]" type="text" placeholder="Idea title">
                     <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your idea"></textarea></div>
-                    <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this idea to {{current_user.provider}}?</div>
+                    <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this idea to {{ current_user.provider }}?</div>
                     <input type="submit" value="add idea" class="btn primary submit" />
                 </fieldset>
             </div>
         </form>
         {% endif %}
-    
+
         <!-- Start the content! -->
         <div id="wrapper">
-        {{ # This will be replace with the template content }}
-        {{yield}}
+          <!-- This will be replaced with the template content -->
+          {{ yield }}
         </div>
-    
+
         <!-- Footer -->
         <footer>
-            <p>{{%rusic.title%}} is powered by Rusic</p>
+          <p>{{ space.title }} is powered by Rusic</p>
         </footer>
-    
+
     </div>
-    
+
     <!-- Share space button -->
     <div id="share-space">
         <span class="share-text">share this page</span>
