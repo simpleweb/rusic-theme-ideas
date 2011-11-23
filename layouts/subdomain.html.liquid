@@ -19,7 +19,7 @@
         {{space.title}}
       {% endif %}
     </title>
-    <meta name="description" content="{{rusic.summary}}">
+    <meta name="description" content="{{space.summary}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Less -->
@@ -108,7 +108,7 @@
 
         {% if current_user %}
         <!-- Add new idea form -->
-        <form id="entry_form" method="post" action="/ideas" class="clearfix" enctype="multipart/form-data">
+        <form id="entry_form" method="post" action="{{space.permalink}}/ideas" class="clearfix" enctype="multipart/form-data">
             <div id="new-idea">
                 <h3>Add a new idea...</h3>
                 <fieldset>
