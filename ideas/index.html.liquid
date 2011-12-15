@@ -27,7 +27,10 @@
 
       <div class="meta">
           <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
-          <span class="author">thought up by {{ idea.user.nickname }} 3 days ago</span>
+          <span class="author">
+            thought up by {{ idea.user.nickname }}
+            {{ idea.created_at | human_time_distance }} ago
+          </span>
           <div class="actions">
               <ul>
                   <li class="first"><a href="{{ idea.like_link }}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</strong></a></li>
