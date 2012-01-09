@@ -2419,6 +2419,7 @@ textarea {
   resize: vertical;
 }
 #wrapper {
+  width: 520px;
   float: left;
   position: relative;
   background: #ffffff;
@@ -3136,6 +3137,23 @@ h1.show {
 #comments-form .checkarea input {
   width: auto;
   margin-right: 5px;
+}
+.empty {
+  float: left;
+  position: relative;
+  display: block;
+  width: 100%;
+  color: #808080;
+  text-align: center;
+}
+.empty h1 {
+  font-size: 2em;
+  margin: 0 0 5px 0;
+  color: #808080;
+}
+.empty p {
+  margin: 0;
+  padding: 0;
 }
 .alert-message {
   float: left;

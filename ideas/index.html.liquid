@@ -1,44 +1,59 @@
-{% for idea in space.ideas %}
-  <!-- ENTRY -->
-  <div class="entry">
-      <h1 class="show">{{ idea.title }}</h1>
+{% if space.ideas != empty %}
 
-      <div class="slide">
-          <div class="content">
-              {{ idea.content | markdown }}
-          </div>
+  {% for idea in space.ideas %}
+    <!-- ENTRY -->
+    <div class="entry">
+        <h1 class="show">{{ idea.title }}</h1>
 
-          {% if idea.interested_users != empty %}
-          <div class="interest">
-              <h3>people interested in this</h3>
-              <ul class="interested-people">
-                {% for user in idea.interested_users %}
-                    <li>
-                      <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
-                        <img src="{{ user.image_url }}" alt="{{ user.nickname }}" class="avatar" />
-                      </a>
-                    </li>
-                {% endfor %}
-              </ul>
-          </div>
-          {% endif %}
-          <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
-      </div>
+        <div class="slide">
+            <div class="content">
+                {{ idea.content | markdown }}
+            </div>
 
-      <div class="meta">
-          <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
-          <span class="author">
-            thought up by {{ idea.user.nickname }}
-            {{ idea.created_at | human_time_distance }} ago
-          </span>
-          <div class="actions">
-              <ul>
-                  <li class="first"><a href="{{ idea.like_link }}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</strong></a></li>
-                  <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
-              </ul>
-          </div>
-      </div>
+            {% if idea.interested_users != empty %}
+            <div class="interest">
+                <h3>people interested in this</h3>
+                <ul class="interested-people">
+                  {% for user in idea.interested_users %}
+                      <li>
+                        <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
+                          <img src="{{ user.image_url }}" alt="{{ user.nickname }}" class="avatar" />
+                        </a>
+                      </li>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
+        </div>
 
-      <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{ idea.likes }}<br /><span class="like-label">likes<span></a>
-  </div>
-{% endfor %}
+        <div class="meta">
+            <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
+            <span class="author">
+              thought up by {{ idea.user.nickname }}
+              {{ idea.created_at | human_time_distance }} ago
+            </span>
+            <div class="actions">
+                <ul>
+                    <li class="first"><a href="{{ idea.like_link }}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</strong></a></li>
+                    <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{ idea.likes }}<br /><span class="like-label">likes<span></a>
+    </div>
+  {% endfor %}
+
+{% else %}
+
+<div class="empty">
+<h1>Nobody has posted anything here yet!</h1>
+{% if current_user %}
+<p>be the first to add an idea by using the 'add a new idea' button</p>
+{% else %}
+<p>login with twitter or facebook to be the first to add a idea</p>
+{% endif %}
+</div>
+
+{% endif %}
