@@ -9,28 +9,28 @@
             <div class="content">
                 {{ idea.content | markdown }}
             </div>
+            <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
+        </div>
 
-            {% if idea.interested_users != empty %}
+        {% if idea.interested_users != empty %}
             <div class="interest">
-                <h3>people interested in this</h3>
+                <h3>people interested in this:</h3>
                 <ul class="interested-people">
                   {% for user in idea.interested_users %}
                       <li>
                         <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
-                          <img src="{{ user.image_url }}" alt="{{ user.nickname }}" class="avatar" />
+                          <img src="{{ user.image_url }}" alt="{{ user.nickname }}" width="40" height="40" class="avatar" />
                         </a>
                       </li>
                   {% endfor %}
                 </ul>
             </div>
             {% endif %}
-            <a href="{{idea.permalink}}" title="permalink for {{%idea.title%}}" class="btn">go to page for this idea</a>
-        </div>
 
         <div class="meta">
             <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
             <span class="author">
-              thought up by {{ idea.user.nickname }}
+              by {{ idea.user.nickname }}
               {{ idea.created_at | human_time_distance }} ago
             </span>
             <div class="actions">
@@ -52,7 +52,7 @@
   {% if current_user %}
   <p>be the first to add an idea by using the 'add a new idea' button</p>
   {% else %}
-  <p>login with twitter or facebook to be the first to add a idea</p>
+  <p>login with twitter or facebook to be the first to add an idea</p>
   {% endif %}
 </div>
 

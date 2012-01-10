@@ -1,5 +1,30 @@
 $(document).ready(function(){
 
+    $(function() {
+
+        var $sidebar = $("#share-page"),
+        $window = $(window),
+        offset = $sidebar.offset(),
+        topPadding = 20;
+
+        $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+        $sidebar.stop().animate({
+        marginTop: $window.scrollTop() - offset.top + topPadding
+        });
+
+        } else {
+        $sidebar.stop().animate({
+        marginTop: 0
+        });
+        }
+        });
+
+    });
+
+    // Fade in login prompt
+    $('.ideas-index .login-prompt').hide().delay(1200).fadeIn(1000);
+
     // Show & hide new idea container
     $(".slide").hide();
     $(".show").show();

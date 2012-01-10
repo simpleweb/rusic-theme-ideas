@@ -108,12 +108,13 @@ textarea { resize: vertical; }
 }
 
 #mast { width: 522px;
-    margin: 30px 0 30px 0; padding: 0 30px 0 30px; text-align: center;
+    margin: 30px 0 0 0; padding: 0 30px 0 30px; text-align: center;
     h1 { display: inline-block; padding: 10px 15px; border-bottom: 2px solid darken(@baseColor, 15%); color: @white; font-size: 2.5em; text-transform: uppercase; font-weight: normal;
         a { color: @white; }
     }
     .description { color: @neutral; padding: 0 50px 0 50px; }
     #user-actions { width: 100%; float: left; clear: left; position: relative; padding: 10px 0 0 0; border-top: 1px dotted darken(@baseColor, 12%); color: @white; }
+    .loggedin { margin-bottom: 20px; }
     #navigation { float: right; position: relative; }
 }
 
@@ -122,7 +123,7 @@ textarea { resize: vertical; }
     background: @neutral;
     h1 { margin: 25px 20px 30px 20px; padding: 0 85px 0 0; font-size: 2.5em; font-weight: normal; }
     .content { margin: 15px 20px; }
-    .interest { width: 480px; margin: 10px 20px 10px 20px; border-top: 2px solid @complement; }
+    .interest { width: 480px; margin: 0 20px 10px 20px; border-top: 2px solid @complement; }
     #comments { margin: 15px 20px; padding: 0; border-top: 2px solid @complement; }
     .comment-count { width: 55px; height: 40px; padding: 18px 5px 20px 5px; position: absolute; top: -5px; right: 12px; background: @baseColor; font-size: 25px; text-align: center; color: @white;  box-shadow: (0 2px 0 darken(@neutral, 18%));
     a { color: @white; }}
@@ -132,6 +133,7 @@ textarea { resize: vertical; }
     float: left; position: relative; clear: left;
     .interested-people { margin: 0; padding: 0; list-style-type: none;
     li { float: left; position: relative; margin: 0 5px 0 0; }}
+    h3 { font-size: 1em; color: #999999; }
 }
 
 #comments { width: 480px;
@@ -325,8 +327,8 @@ span.countdown_row {
 
   .countdown-text { width: 100%; float: left; position: relative; text-align: center; }
 
-  .alert-message.tip { width: 330px; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -35px; .close { color: #000; }
-      i { width: 17px; height: 10px; background: url(/images/alert-point.png) no-repeat; display: block; position: absolute; right: 130px; top: -10px; }}
+  .alert-message.tip { width: auto; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -20px; z-index: 999; .close { color: #000; }
+      i { width: 17px; height: 10px; background: url(/images/alert-point.png) no-repeat; display: block; position: absolute; right: 115px; top: -10px; }}
   .alert-message.tip p { font-size: 12px; line-height: 13px; color: @gray; text-align: left; margin-top: 2px; *padding-top: 5px; *font-size: 12px; text-align: center; }
 
 
@@ -384,3 +386,17 @@ h1.show {
     width: 490px;
     margin: 5px 0 5px 0;
 }
+
+#share-page {
+  position: absolute; left: -95px; top: 0;
+  background: @white;
+  .border-radius(4px);
+  padding: 10px 12px 0 12px;
+  text-align: center;
+  border: 1px solid darken(@baseColor, 10%);
+  box-shadow: (0 0 1px rgba(255,255,255,.8));
+
+  a { float: left; position: relative; clear: left; margin-bottom: 6px; }
+
+}
+

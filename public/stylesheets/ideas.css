@@ -2430,7 +2430,7 @@ textarea {
 }
 #mast {
   width: 522px;
-  margin: 30px 0 30px 0;
+  margin: 30px 0 0 0;
   padding: 0 30px 0 30px;
   text-align: center;
 }
@@ -2459,6 +2459,9 @@ textarea {
   border-top: 1px dotted #183e6d;
   color: #ffffff;
 }
+#mast .loggedin {
+  margin-bottom: 20px;
+}
 #mast #navigation {
   float: right;
   position: relative;
@@ -2483,7 +2486,7 @@ textarea {
 }
 .entry .interest {
   width: 480px;
-  margin: 10px 20px 10px 20px;
+  margin: 0 20px 10px 20px;
   border-top: 2px solid #9f6823;
 }
 .entry #comments {
@@ -2521,6 +2524,10 @@ textarea {
   float: left;
   position: relative;
   margin: 0 5px 0 0;
+}
+.interest h3 {
+  font-size: 1em;
+  color: #999999;
 }
 #comments {
   width: 480px;
@@ -3055,11 +3062,12 @@ span.countdown_row {
   text-align: center;
 }
 .alert-message.tip {
-  width: 330px;
+  width: auto;
   position: absolute;
   padding: 6px 10px 8px 10px;
   top: 50px;
-  right: -35px;
+  right: -20px;
+  z-index: 999;
 }
 .alert-message.tip .close {
   color: #000;
@@ -3070,7 +3078,7 @@ span.countdown_row {
   background: url(/images/alert-point.png) no-repeat;
   display: block;
   position: absolute;
-  right: 130px;
+  right: 115px;
   top: -10px;
 }
 .alert-message.tip p {
@@ -3160,4 +3168,23 @@ h1.show {
   position: relative;
   width: 490px;
   margin: 5px 0 5px 0;
+}
+#share-page {
+  position: absolute;
+  left: -95px;
+  top: 0;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px 12px 0 12px;
+  text-align: center;
+  border: 1px solid #1a4275;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+}
+#share-page a {
+  float: left;
+  position: relative;
+  clear: left;
+  margin-bottom: 6px;
 }

@@ -22,12 +22,12 @@
 
     {% if idea.interested_users != empty %}
     <div class="interest">
-        <h3>people interested in this</h3>
+        <h3>people interested in this:</h3>
         <ul class="interested-people">
         {% for user in idea.interested_users %}
             <li>
               <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
-                <img src="{{ user.image_url }}" alt="{{ user.nickname }}" class="avatar" />
+                <img src="{{ user.image_url }}" alt="{{ user.nickname }}" width="40" height="40" class="avatar" />
               </a>
             </li>
         {% endfor %}
