@@ -20,6 +20,21 @@
     </title>
     <meta name="description" content="{{space.summary}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if idea %}
+    <meta property="og:title" content="{{ idea.title }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ idea.permalink }}"/>
+    <meta property="og:image" content="{{idea.images.first.square}}"/>
+    <meta property="og:site_name" content="{{ space.title }}"/>
+    <meta property="og:description" content="{{ idea.content }}" />
+    {% else %}
+    <meta property="og:title" content="{{space.title}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ space.permalink }}"/>
+    <meta property="og:image" content="{{ space.ideas.first.images.first.square}}"/>
+    <meta property="og:site_name" content="{{space.title}}"/>
+    <meta property="og:description" content="{{space.summary}}" />
+    {% endif %}
 
     <!-- Less -->
     <link rel="stylesheet" href="{{ asset_url }}/stylesheets/ideas.css">
