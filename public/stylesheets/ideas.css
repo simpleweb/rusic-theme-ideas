@@ -2835,41 +2835,6 @@ footer {
   border: none;
   color: #f5f5f5;
 }
-#share-space {
-  position: absolute;
-  top: 0;
-  right: 40px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 7px 12px 5px 12px;
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-#share-space .share-text {
-  float: left;
-  position: relative;
-  margin: 3px 15px 0 0;
-  color: #ffffff;
-}
-#share-space .buttons {
-  float: left;
-  position: relative;
-  list-style-type: none;
-  margin: 0;
-}
-#share-space .buttons li {
-  float: left;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
 time#expires-at {
   display: inline-block;
   position: relative;
@@ -3187,4 +3152,10 @@ h1.show {
   position: relative;
   clear: left;
   margin-bottom: 6px;
+}
+.alert-message.success, .alert-message.warning, .alert-message.error {
+  position: absolute;
+  z-index: 999;
+  padding: 5px 15px;
+  top: -38px;
 }

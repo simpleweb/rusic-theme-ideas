@@ -37,7 +37,7 @@
 
     <div id="comments">
         <h3>comments</h3>
-        {% if current_user %}<a href="#comments-form" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% else %}<a href="#comments-auth" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% endif %}
+        {% if current_user %}<a href="#comments-form" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% endif %}
         {% if idea.comments != empty %}
         <ol>
             {% for comment in idea.comments %}

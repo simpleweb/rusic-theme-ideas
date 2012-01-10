@@ -241,13 +241,6 @@ footer {
     margin: 0 0 20px 0; border: none; color: @neutral;
 }
 
-#share-space { position: absolute; top: 0; right: 40px; background: rgba(000,000,000,.3); padding: 7px 12px 5px 12px; .box-shadow(0 1px 0 rgba(255,255,255,.2)); -webkit-border-bottom-right-radius: 3px; -webkit-border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -moz-border-radius-bottomleft: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;
-    .share-text { float: left; position: relative; margin: 3px 15px 0 0; color: @white; }
-    .buttons { float: left; position: relative; list-style-type: none; margin: 0;
-        li { float: left; position: relative; margin: 0; padding: 0; border: none; }
-    }
-}
-
 time#expires-at {
   display: inline-block;
   position: relative;
@@ -400,3 +393,9 @@ h1.show {
 
 }
 
+.alert-message.success, .alert-message.warning, .alert-message.error {
+position: absolute;
+z-index: 999;
+padding: 5px 15px;
+top: -38px;
+}

@@ -24,6 +24,7 @@ $(document).ready(function(){
 
     // Fade in login prompt
     $('.ideas-index .login-prompt').hide().delay(1200).fadeIn(1000);
+    $('.alert-message.error, .alert-message.warning, .alert-message.success').delay(2000).slideUp('slow');
 
     // Show & hide new idea container
     $(".slide").hide();

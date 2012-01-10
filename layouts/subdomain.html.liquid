@@ -11,7 +11,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>
       {% if idea %}
         {{idea.title}} &middot; {{space.title}}
@@ -50,19 +49,16 @@
             <div class="description">
                 {{space.summary | markdown}}
             </div>
-
             {% if error %}
             <div class="alert-message error">
             {{ error }}
             </div>
             {% endif %}
-
             {% if alert %}
             <div class="alert-message warning">
             {{ alert }}
             </div>
             {% endif %}
-
             {% if notice %}
             <div class="alert-message success">
             {{ notice }}
@@ -76,7 +72,6 @@
                 <span class="countdown-text">left to submit an idea</span>
               </div>
             {% endif %}
-
             <div id="user-actions" class="{% if current_user %}loggedin{% endif %}">
                 {% if current_user %}
                 <!-- Logged in user bar -->
@@ -105,7 +100,6 @@
                 {% endif %}
             </div>
         </header>
-
         {% if current_user %}
         <!-- Add new idea form -->
         <form id="entry_form" method="post" action="{{space.permalink}}/ideas" class="clearfix" enctype="multipart/form-data">
@@ -120,21 +114,19 @@
             </div>
         </form>
         {% endif %}
-
         <!-- Start the content! -->
         <div id="wrapper">
           <!-- This will be replaced with the template content -->
           {{ yield }}
+            <!-- Share page -->
+            <div id="share-page">
+                <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+                <a class="addthis_button_tweet" tw:count="vertical" tw:via="RusicHQ"></a>
+                <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f0c4de422db2f2f"></script>
+            </div>
 
-        <!-- Share page -->
-        <div id="share-page">
-        <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
-        <a class="addthis_button_tweet" tw:count="vertical"></a>
-        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-        </div>
-        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f0c4de422db2f2f"></script>
-
-        </div>
+        </div> <!-- /wrapper -->
 
         <!-- Footer -->
         <footer>
