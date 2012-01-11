@@ -2,7 +2,7 @@
   <li><a href="{{space.permalink}}" title="link back to {{space.title}} homepage">&#8617; back to all ideas</a></li>
 </ul>
 
-<div id="" class="entry">
+<div class="entry">
     <h1>{{idea.title}}</h1>
 
     <div class="meta">
@@ -53,7 +53,7 @@
         {% if current_user %}
         <div id="comments-form">
             <h3>add a comment</h3>
-            <form action="{{idea.permalink}}/comments" method="post" charset="utf-8">
+            <form action="{{idea.permalink}}/comments" method="post">
                 <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
                 <div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
                 <input type="submit" name="submit" value="post comment" class="btn primary" />
@@ -71,5 +71,5 @@
         {% endif %}
     </div>
 
-    <a href="{{idea.like_link}}" data-method="post" class="comment-count">{{ idea.likes }}<br /><span class="like-label">likes<span></a>
+    <span class="comment-count"><a href="{{idea.like_link}}" data-method="post">{{ idea.likes }}</a><br /><span class="like-label">likes</span></span>
 </div>
