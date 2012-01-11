@@ -3040,7 +3040,7 @@ span.countdown_row {
 .alert-message.tip i {
   width: 17px;
   height: 10px;
-  background: url(/images/alert-point.png) no-repeat;
+  background: url(../images/alert-point.png) no-repeat;
   display: block;
   position: absolute;
   right: 115px;
