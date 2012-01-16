@@ -2402,7 +2402,8 @@ h2,
 h3,
 h4,
 h5,
-.meta {
+.meta,
+#filters {
   font-family: 'OpenSansRegular';
 }
 p {
@@ -3158,4 +3159,61 @@ h1.show {
   z-index: 999;
   padding: 5px 15px;
   top: -38px;
+}
+#filters {
+  width: 492px;
+  float: left;
+  position: relative;
+  margin: 0 0 20px 0;
+  padding: 7px 14px;
+  background-color: #e6e6e6;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: .85em;
+}
+#filters .filter-label {
+  float: left;
+  position: relative;
+  margin: 0 10px 0 0;
+  color: #808080;
+}
+#filters ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#filters ul li {
+  float: left;
+  position: relative;
+  margin: 0 5px 0 0;
+}
+#filters ul li a {
+  padding: 3px 7px 4px 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#filters ul li a.all {
+  background: url(../images/icon-all.png) 5px center no-repeat;
+}
+#filters ul li a.mine {
+  background: url(../images/icon-mine.png) 6px center no-repeat;
+}
+#filters ul li a.popular {
+  background: url(../images/icon-popular.png) 6px center no-repeat;
+}
+#filters ul li a.active, #filters ul li a:hover {
+  -webkit-box-shadow: inset 0 0 4px #adadad;
+  -moz-box-shadow: inset 0 0 4px #adadad;
+  box-shadow: inset 0 0 4px #adadad;
 }

@@ -1,5 +1,16 @@
 {% if space.ideas != empty %}
 
+  {% if current_user %}
+  <div id="filters">
+    <span class="filter-label">Show:</span>
+    <ul>
+      <li><a href="/" class="all {% if filter == "own" %}{% else %}{% if sort == "like" %}{% else %}active{% endif %}{% endif %}" title="show all entries">All</a></li>
+      <li><a href="?filter=own" class="mine {% if filter == "own" %}active{% endif %}" title="show my entries">Mine</a></li>
+      <li><a href="?sort=like" class="popular {% if sort == "like" %}active{% endif %}" title="show popular entries">Popular</a></li>
+    </ul>
+  </div>
+  {% endif %}
+
   {% for idea in space.ideas %}
     <!-- ENTRY -->
     <div class="entry">

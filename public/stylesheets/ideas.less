@@ -84,7 +84,7 @@ body {
     color: @grayDark;
 }
 
-h1, h2, h3, h4, h5, .meta {
+h1, h2, h3, h4, h5, .meta, #filters {
     font-family: 'OpenSansRegular';
 }
 
@@ -399,3 +399,15 @@ z-index: 999;
 padding: 5px 15px;
 top: -38px;
 }
+
+#filters { width: 492px; float: left; position: relative; margin: 0 0 20px 0; padding: 7px 14px; #gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%)); border: 1px solid darken(@neutral, 10%); .border-radius(3px); font-size: .85em;
+  .filter-label { float: left; position: relative; margin: 0 10px 0 0; color: @gray; }
+  ul { margin: 0; padding: 0; list-style-type: none;
+    li { float: left; position: relative; margin: 0 5px 0 0; 
+      a { padding: 3px 7px 4px 20px; .border-radius(4px);
+        &.all { background: url(../images/icon-all.png) 5px center no-repeat; }
+        &.mine { background: url(../images/icon-mine.png) 6px center no-repeat; } 
+        &.popular { background: url(../images/icon-popular.png) 6px center no-repeat; }
+        &.active, &:hover { .box-shadow(inset 0 0 4px darken(@grayLight, 7%); }}}}
+}
+
