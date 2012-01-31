@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $("#entry_form").validate();
+
     $(function() {
 
         var $sidebar = $("#share-page"),
