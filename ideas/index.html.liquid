@@ -36,7 +36,11 @@
       <span class="author">by {{ idea.user.nickname }} {{ idea.created_at | human_time_distance }} ago</span>
       <div class="actions">
         <ul>
-          <li class="first"><a href="{{ idea.like_link }}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</strong></a></li>
+          {% if idea.liked? %}
+          <li class="first"><span class="like">like <strong>({{ idea.likes }})</span></li>
+          {% else %}
+          <li class="first"><a href="{{idea.like_link}}" title="like action for {{idea.title}}" data-method="post" class="like">like <strong>({{ idea.likes }})</a></li>
+          {% endif %}
           <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
         </ul>
       </div>
