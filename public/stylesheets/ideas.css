@@ -3226,6 +3226,12 @@ h1.show {
   -moz-box-shadow: inset 0 0 4px #adadad;
   box-shadow: inset 0 0 4px #adadad;
 }
+#filters .rss {
+  float: right;
+  position: relative;
+  padding-left: 20px;
+  background: url(../images/icon-feed.png) 6px center no-repeat;
+}
 label.error {
   color: #d4903b;
   font-size: .9em;

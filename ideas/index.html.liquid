@@ -7,6 +7,7 @@
       {% if current_user %}<li><a href="?filter=own" class="mine {% if filter == "own" %}active{% endif %}" title="show my entries">Mine</a></li>{% endif %}
       <li><a href="?sort=like" class="popular {% if sort == "like" %}active{% endif %}" title="show popular entries">Popular</a></li>
     </ul>
+    <a href="{{space.permalink}}.atom" title="RSS feed for {{space.title}}" class="rss">RSS</a>
   </div>
 
   {% for idea in space.ideas %}
