@@ -185,15 +185,17 @@ footer {
     li { *height: 30px; float: left; postion: relative; padding: 0; #gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%)); border-right: 1px solid @grayLight;
     &.last { border-right: none; }
     }}
-
-    a { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px;
+    a, .like-link { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px;
     &:hover { text-decoration: none; } }
-    .action-like { background: url(../images/button-like.png) 0 2px no-repeat;
-    &:hover { background: url(../images/button-like-hover.png) 0 2px no-repeat; }}
+    .action-like, .like-link { background: url(../images/button-like.png) 0 2px no-repeat;
+    &:hover { cursor: pointer; background: url(../images/button-like-hover.png) 0 2px no-repeat; }}
     .action-discuss { background: url(../images/button-discuss.png) 0 3px no-repeat;
     &:hover { background: url(../images/button-discuss-hover.png) 0 3px no-repeat; }}
     span.on { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px; background: url(../images/button-like-hover.png) 0 2px no-repeat; }
 }
+
+.action-like, .like-link { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px; background: url(../images/button-like.png) 0 2px no-repeat; }
+.action-like:hover, .like-link:hover, .like-link.on, .action-like.on { cursor: pointer; background: url(../images/button-like-hover.png) 0 2px no-repeat; }
 
 #user-bar {
     float: left; position: relative; text-align: left;

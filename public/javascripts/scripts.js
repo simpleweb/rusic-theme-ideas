@@ -25,22 +25,23 @@ $(document).ready(function(){
     });
 
     // AJAXIFY LIKE BUTTONS
-function attachLiking() {
-    
-    $('a.like', '.actions-menu').on('click', function() {
+    $('.action-like').click(function(){
 
-        var likeLink = $(this);
+    var button = this;
 
-        $.post(likeLink.attr('href'), function(data) {
-          $('body').append('<div class="alert-message success prompt">Thanks for liking the picture!</div>');
-          likeLink.replaceWith('<span class="liked">' + (parseInt(likeLink.html())+1) + '</span>');
-          removeAlerts();
-        });
+    $(this).addClass('disabled');
 
-        return false;
-    });
-
-  }
+    $.post($(this).attr('the_link'), function(data) {
+      if(data.valid){
+        $(button).find(".likecount").html('('+data.likes_count+')');
+        $(button).removeClass('disabled');
+        $(button).addClass('on');
+      }else{
+        alert(data.message);
+        $(button).removeClass('disabled');
+      }
+    }, 'json');
+  });
 
     // Fade in login prompt
     $('.ideas-index .login-prompt').hide().delay(1200).fadeIn(1000);

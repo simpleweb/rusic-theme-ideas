@@ -2705,20 +2705,21 @@ footer p {
 .actions ul li.last {
   border-right: none;
 }
-.actions a {
+.actions a, .actions .like-link {
   *height: 30px;
   float: left;
   position: relative;
   margin: 5px 10px;
   padding-left: 22px;
 }
-.actions a:hover {
+.actions a:hover, .actions .like-link:hover {
   text-decoration: none;
 }
-.actions .action-like {
+.actions .action-like, .actions .like-link {
   background: url(../images/button-like.png) 0 2px no-repeat;
 }
-.actions .action-like:hover {
+.actions .action-like:hover, .actions .like-link:hover {
+  cursor: pointer;
   background: url(../images/button-like-hover.png) 0 2px no-repeat;
 }
 .actions .action-discuss {
@@ -2733,6 +2734,21 @@ footer p {
   position: relative;
   margin: 5px 10px;
   padding-left: 22px;
+  background: url(../images/button-like-hover.png) 0 2px no-repeat;
+}
+.action-like, .like-link {
+  *height: 30px;
+  float: left;
+  position: relative;
+  margin: 5px 10px;
+  padding-left: 22px;
+  background: url(../images/button-like.png) 0 2px no-repeat;
+}
+.action-like:hover,
+.like-link:hover,
+.like-link.on,
+.action-like.on {
+  cursor: pointer;
   background: url(../images/button-like-hover.png) 0 2px no-repeat;
 }
 #user-bar {

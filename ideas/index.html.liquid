@@ -40,7 +40,7 @@
           {% if idea.liked? %}
           <li class="first"><span class="action-like on">like <strong>({{ idea.likes }})</span></li>
           {% else %}
-          <li class="first"><a href="{{idea.like_link}}" title="like action for {{idea.title}}" data-method="post" class="action-like">like <strong>({{ idea.likes }})</a></li>
+          <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> Like <strong class="likecount">({{idea.likes}})</strong></div></li>
           {% endif %}
           <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
         </ul>
