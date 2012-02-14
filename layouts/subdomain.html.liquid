@@ -1,5 +1,5 @@
 {% if env == "development" %}
-  {% assign asset_url="https://s3.amazonaws.com/rusic-ideas-theme" %}
+  {% assign asset_url="http://ideas-assets/" %}
 {% else %}
   {% assign asset_url="https://s3.amazonaws.com/rusic-ideas-theme" %}
 {% endif %}
@@ -85,7 +85,7 @@
               <div id="timer">
                 <span class="countdown-text">you have</span>
                 <time id="expires-at" datetime="{{space.expires_at}}">{{space.expires_at}}</time>
-                <span class="countdown-text">left to submit an idea</span>
+                <span class="countdown-text">left to submit an {{theme.idea_context}}</span>
               </div>
             {% endif %}
             <div id="user-actions" class="{% if current_user %}loggedin{% endif %}">
@@ -97,7 +97,7 @@
                 </div>
 
                 <nav id="navigation">
-                    <a title="Add new idea to {{space.title}}" class="btn primary showbtn">+ add new idea</a>
+                    <a title="Add new {{theme.idea_context}} to {{space.title}}" class="btn primary showbtn">+ add new {{theme.idea_context}}</a>
                 </nav>
                 {% else %}
                 <!-- Logged out user bar -->
@@ -111,7 +111,7 @@
                 </ul>
 
                 <div class="alert-message tip login-prompt">
-                    <i></i><p>login with twitter or facebook to add new or like ideas</p>
+                    <i></i><p>login with twitter or facebook to add new or {{theme.like_context}} {{theme.ideas_context}}</p>
                 </div>
                 {% endif %}
             </div>
@@ -120,12 +120,12 @@
         <!-- Add new idea form -->
         <form id="entry_form" method="post" action="{{space.permalink}}/ideas" class="clearfix" enctype="multipart/form-data">
             <div id="new-idea">
-                <h3>Add a new idea...</h3>
+                <h3>Add a new {{theme.idea_context}}...</h3>
                 <fieldset>
                     <input class="span4 required" id="idea_title" name="idea[title]" type="text" placeholder="Idea title">
                     <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your idea" class="required"></textarea></div>
-                    <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this idea to {{ current_user.provider }}?</div>
-                    <input type="submit" value="add idea" class="btn primary submit" />
+                    <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this {{theme.idea_context}} to {{ current_user.provider }}?</div>
+                    <input type="submit" value="add {{theme.idea_context}}" class="btn primary submit" />
                 </fieldset>
             </div>
         </form>

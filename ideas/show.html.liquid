@@ -1,5 +1,5 @@
 <ul class="breadcrumb">
-  <li><a href="{{space.permalink}}" title="link back to {{space.title}} homepage">&#8617; back to all ideas</a></li>
+  <li><a href="{{space.permalink}}" title="link back to {{space.title}} homepage">&#8617; back to all {{theme.ideas_context}}</a></li>
 </ul>
 
 <div class="entry">
@@ -11,9 +11,9 @@
         <div class="actions">
             <ul>
                 {% if idea.liked? %}
-                <li class="first"><span class="action-like on">like <strong>({{ idea.likes }})</span></li>
+                <li class="first"><span class="action-like on">{{theme.like_context}} <strong>({{ idea.likes }})</span></li>
                 {% else %}
-                <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> Like <strong class="likecount">({{idea.likes}})</strong></div></li>
+                <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> {{theme.like_context}} <strong class="likecount">({{idea.likes}})</strong></div></li>
                 {% endif %}
                 <li class="last"><a href="#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
             </ul>
@@ -22,6 +22,9 @@
 
     <div class="content">
         {{idea.content | markdown}}
+        {% if idea.user.uuid == current_user.uuid %}
+        <a href="{{idea.permalink}}/edit" title="link to edit {{idea.title}}" class="btn">edit {{theme.idea_context}}</a>
+        {% endif %}
     </div>
 
     {% if idea.interested_users != empty %}
@@ -75,5 +78,5 @@
         {% endif %}
     </div>
 
-    <span class="comment-count"><a href="{{idea.like_link}}" data-method="post">{{ idea.likes }}</a><br /><span class="like-label">likes</span></span>
+    <span class="comment-count"><a href="{{idea.like_link}}" data-method="post">{{ idea.likes }}</a><br /><span class="like-label">{{theme.likes_context}}</span></span>
 </div>
