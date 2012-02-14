@@ -6,8 +6,8 @@
     <h1>{{idea.title}}</h1>
 
     <div class="meta">
-        <img src="{{idea.user.image_url}}" alt="avatar for {{%idea.user%}}" width="25" height="25" class="avatar" />
-        <span class="author">by {{idea.user.nickname}} {{ idea.created_at | human_time_distance }} ago</span>
+        <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}"><img src="{{idea.user.image_url}}" alt="avatar for {{%idea.user%}}" width="25" height="25" class="avatar" /></a>
+        <span class="author">by <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}">{{ idea.user.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
         <div class="actions">
             <ul>
                 {% if idea.liked? %}
@@ -15,7 +15,7 @@
                 {% else %}
                 <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> {{theme.like_context}} <strong class="likecount">({{idea.likes}})</strong></div></li>
                 {% endif %}
-                <li class="last"><a href="#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
+                <li class="last"><a href="#comments" title="link to comments for {{idea.title}}" class="action-discuss">{{theme.comments_context}} <strong>({{ idea.comments_count }})</strong></a></li>
             </ul>
         </div>
     </div>
@@ -43,23 +43,23 @@
     {% endif %}
 
     <div id="comments">
-        <h3>comments</h3>
-        {% if current_user %}<a href="#comments-form" title="link to add a comment form for {{idea.title}}" class="btn">add comment</a>{% endif %}
+        <h3>{{theme.comments_context}}</h3>
+        {% if current_user %}<a href="#comments-form" title="link to add a comment form for {{idea.title}}" class="btn">add {{theme.comment_context}}</a>{% endif %}
         {% if idea.comments != empty %}
         <ol>
             {% for comment in idea.comments %}
-            <li><img src="{{comment.user.image_url}}" alt="avatar for {{%comment.user.name%}}" width="25" height="25" class="avatar" /><div class="author">{{ comment.created_at | date: "%b %m %Y" }} <strong><strong>{{ comment.user.nickname }}</strong></strong> said...</div><div class="comment">{{ comment.body | markdown }}</div></li>
+            <li><a href="{{ comment.user.profile_url }}" title="{{ comment.user.nickname }}'s {{ comment.user.provider }} profile"><img src="{{comment.user.image_url}}" alt="avatar for {{%comment.user.name%}}" width="25" height="25" class="avatar" /></a><div class="author">{{ comment.created_at | date: "%b %m %Y" }} <strong><strong><a href="{{ comment.user.profile_url }}" title="{{ comment.user.nickname }}'s {{ comment.user.provider }} profile">{{ comment.user.nickname }}</a></strong></strong> said...</div><div class="comment">{{ comment.body | markdown }}</div></li>
             {% endfor %}
         <ol>
         {% else %}
         <ol>
-            <li><p>Nobody has commented here yet, maybe you could be the first?</p></li>
+            <li><p>There aren't any {{theme.comments_context}} here yet! Maybe you could be the first to add one?</p></li>
         </ol>
         {% endif %}
 
         {% if current_user %}
         <div id="comments-form">
-            <h3>add a comment</h3>
+            <h3>add a {{theme.comment_context}}</h3>
             <form action="{{idea.permalink}}/comments" method="post">
                 <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
                 <div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
@@ -68,8 +68,8 @@
         </div>
         {% else %}
         <div id="comments-auth">
-            <h3>add a comment</h3>
-            <div class="alert-message tip"><i></i><p>login with twitter or facebook to add comments</p></div>
+            <h3>add a {{theme.comment_context}}</h3>
+            <div class="alert-message tip"><i></i><p>login with twitter or facebook to add {{theme.comments_context}}</p></div>
             <ul class="auth">
                 <li class="twitter"><a href="/auth/twitter" class="button"><span></span>Twitter</a></li>
                 <li class="facebook"><a href="/auth/facebook" class="button"><span></span>Facebook</a></li>

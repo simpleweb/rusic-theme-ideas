@@ -36,8 +36,8 @@
     {% endif %}
 
     <div class="meta">
-      <img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" />
-      <span class="author">by {{ idea.user.nickname }} {{ idea.created_at | human_time_distance }} ago</span>
+      <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}"><img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" /></a>
+      <span class="author">by <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}">{{ idea.user.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
       <div class="actions">
         <ul>
           {% if idea.liked? %}
@@ -45,7 +45,7 @@
           {% else %}
           <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> {{theme.like_context}} <strong class="likecount">({{idea.likes}})</strong></div></li>
           {% endif %}
-          <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">discuss <strong>({{ idea.comments_count }})</strong></a></li>
+          <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">{{theme.comments_context}} <strong>({{ idea.comments_count }})</strong></a></li>
         </ul>
       </div>
     </div>
@@ -58,7 +58,7 @@
   <div class="empty">
     <h1>Nobody has posted anything here yet!</h1>
     {% if current_user %}
-    <p>be the first to add a {{theme.idea_context}} by using the 'add a new idea' button</p>
+    <p>be the first to add a {{theme.idea_context}} by using the 'add a new {{theme.idea_context}}' button</p>
     {% else %}
     <p>login with twitter or facebook to be the first to add a {{theme.idea_context}}</p>
     {% endif %}

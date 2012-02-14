@@ -12,7 +12,7 @@
     <div id="edit-idea">
         <fieldset>
             <input class="span4 required" id="idea_title" name="idea[title]" type="text" value="{{idea.title}}">
-            <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your idea" class="required">{{ idea.content }}</textarea></div>
+            <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your {{theme.idea_context}}" class="required">{{ idea.content }}</textarea></div>
             <input type="submit" value="update idea" class="btn primary submit" />
         </fieldset>
     </div>
