@@ -8,7 +8,8 @@
     <h1>{{idea.title}}</h1>
     
 <!-- Edit form -->
-<form id="edit_form" method="post" action="{{space.permalink}}/ideas" class="clearfix" enctype="multipart/form-data">
+<form id="entry_form" method="post" action="{{idea.permalink}}" class="clearfix" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="put" />
     <div id="edit-idea">
         <fieldset>
             <input class="span4 required" id="idea_title" name="idea[title]" type="text" value="{{idea.title}}">
