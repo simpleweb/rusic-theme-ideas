@@ -1,6 +1,6 @@
 {% if current_user %}
 <ul class="breadcrumb">
-  <li><a href="{{space.permalink}}" title="link back to {{space.title}} homepage">&#8617; back to all {{idea.title}}</a></li>
+  <li><a href="{{idea.permalink}}" title="link back to {{space.title}} homepage">&#8617; back to all {{idea.title}}</a></li>
 </ul>
 
 <div class="entry edit">
@@ -12,7 +12,7 @@
     <input type="hidden" name="_method" value="put" />
     <div id="edit-idea">
         <fieldset>
-            <input class="span4 required" id="idea_title" name="idea[title]" type="text" value="{{idea.title}}">
+            <input class="span4 required" id="idea_title" name="idea[title]" type="text" placeholder="{{theme.idea_context | capitalize}} title" value="{{idea.title}}">
             <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your {{theme.idea_context}}" class="required">{{ idea.content }}</textarea></div>
             <input type="submit" value="update idea" class="btn primary submit" />
         </fieldset>

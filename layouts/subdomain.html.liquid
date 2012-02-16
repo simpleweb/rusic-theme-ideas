@@ -54,7 +54,7 @@
 
 </head>
 
-<body class="{{ body_class }}">
+<body class="{{ body_class }} {% unless current_user %}logged-out{% endunless %}">
 
     <div class="container">
 
@@ -122,7 +122,7 @@
             <div id="new-idea">
                 <h3>Add a new {{theme.idea_context}}...</h3>
                 <fieldset>
-                    <input class="span4 required" id="idea_title" name="idea[title]" type="text" placeholder="{{theme.idea_context}} title">
+                    <input class="span4 required" id="idea_title" name="idea[title]" type="text" placeholder="{{theme.idea_context | capitalize}} title">
                     <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your {{theme.idea_context}}" class="required"></textarea></div>
                     <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this {{theme.idea_context}} to {{ current_user.provider }}?</div>
                     <input type="submit" value="add {{theme.idea_context}}" class="btn primary submit" />

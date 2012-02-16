@@ -189,7 +189,7 @@ footer {
     &:hover { text-decoration: none; } }
     .action-like, .like-link { background: url(../images/button-like.png) 0 2px no-repeat;
     &:hover { cursor: pointer; background: url(../images/button-like-hover.png) 0 2px no-repeat; }}
-    .action-discuss { background: url(../images/button-discuss.png) 0 3px no-repeat;
+    .action-discuss { background: url(../images/button-discuss.png) 0 3px no-repeat; color: @gray;
     &:hover { background: url(../images/button-discuss-hover.png) 0 3px no-repeat; }}
     span.on { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px; background: url(../images/button-like-hover.png) 0 2px no-repeat; }
 }
@@ -242,6 +242,14 @@ body.ideas-show {
 
 footer {
     margin: 0 0 20px 0; border: none; color: @neutral;
+}
+
+#timer {
+  width: 100%;
+  float: left; position: relative;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: 1px dotted darken(@baseColor, 12%);
 }
 
 time#expires-at {
@@ -321,7 +329,7 @@ span.countdown_row {
               span { background-position: 20px; }}}
   }
 
-  .countdown-text { width: 100%; float: left; position: relative; text-align: center; }
+  .countdown-text { width: 100%; float: left; position: relative; text-align: center; color: @white; }
 
   .alert-message.tip { width: auto; position: absolute; padding: 6px 10px 8px 10px; top: 50px; right: -20px; z-index: 999; .close { color: #000; }
       i { width: 17px; height: 10px; background: url(../images/alert-point.png) no-repeat; display: block; position: absolute; right: 115px; top: -10px; }}
@@ -478,3 +486,8 @@ label.error {
   
 }
 
+.logged-out {
+    .action-like:hover {
+        background: url(../images/button-like.png) 0 2px no-repeat;cursor: default;
+    }
+}
