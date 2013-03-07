@@ -63,6 +63,22 @@
             <form action="{{idea.permalink}}/comments" method="post">
                 <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
                 <div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
+                <br/><br/><br/>
+                <div class="checkarea">
+                {% assign subscription = idea.subscription %}
+                {% if subscription %}
+                  {% if subscription.active? %}
+                    <p>You are already subscribed to email notifications for this thread</p>
+                  {% else %}
+                    <p>You have unsubscribed to email notifications for this thread</p>
+                  {% endif %}
+                {% else %}
+                  <label class="checkbox" style="width:auto;">
+                    <input type="checkbox" name="comment[subscribe_to_notifications]"/ > subscribe to notifications for this thread?
+                  </label>
+                {% endif %}
+                </div>
+
                 <input type="submit" name="submit" value="post comment" class="btn primary" />
             </form>
         </div>
