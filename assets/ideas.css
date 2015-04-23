@@ -2747,7 +2747,7 @@ textarea {
   float: left;
   position: relative;
   clear: left;
-  background: url('{{ "../images/split.png" | image_url }}') repeat-x #e8e8e8;
+  background: url('{{ "split.png" | image_url }}') repeat-x #e8e8e8;
   border-top: 1px solid #fdfdfd;
   color: #808080;
   font-size: 12px;
