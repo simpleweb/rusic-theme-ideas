@@ -599,9 +599,9 @@ fieldset legend {
   line-height: 1;
   color: #404040;
   *padding: 0 0 5px 145px;
+  /* IE6-7 */
   *line-height: 1.5;
   /* IE6-7 */
-
 }
 form .clearfix {
   margin-bottom: 20px;
@@ -667,7 +667,6 @@ input[type=radio] {
   margin: 3px 0;
   *margin-top: 0;
   /* IE6-7 */
-
   line-height: normal;
   border: none;
 }
@@ -692,7 +691,6 @@ input[type=file] {
   line-height: 30px;
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
-
 }
 select[multiple] {
   height: inherit;
@@ -980,9 +978,9 @@ textarea[readonly] {
 .help-inline {
   padding-left: 5px;
   *position: relative;
+  /* IE6-7 */
   *top: -5px;
   /* IE6-7 */
-
 }
 .help-block {
   display: block;
@@ -1040,7 +1038,6 @@ textarea[readonly] {
 .input-prepend .add-on {
   *margin-top: 1px;
   /* IE6-7 */
-
 }
 .input-append input {
   float: left;
@@ -1151,7 +1148,6 @@ table {
   border-collapse: separate;
   *border-collapse: collapse;
   /* IE7, collapse table to remove spacing */
-
   font-size: 13px;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
@@ -2046,7 +2042,6 @@ input[type=submit].btn::-moz-focus-inner {
 .alert-message .close {
   *margin-top: 3px;
   /* IE7 spacing */
-
 }
 .alert-message h5 {
   line-height: 20px;
@@ -2133,7 +2128,6 @@ input[type=submit].btn::-moz-focus-inner {
   border-right-color: rgba(0, 0, 0, 0.15);
   *border-right-color: #ddd;
   /* IE6-7 */
-
   text-decoration: none;
 }
 .pagination a:hover,
@@ -2197,7 +2191,6 @@ input[type=submit].btn::-moz-focus-inner {
   border: 1px solid rgba(0, 0, 0, 0.3);
   *border: 1px solid #999;
   /* IE6-7 */
-
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -2480,29 +2473,29 @@ input[type=submit].btn::-moz-focus-inner {
 }
 @font-face {
   font-family: 'DroidSerifRegular';
-  src: url('fonts/DroidSerif-Regular-webfont.eot');
-  src: url('fonts/DroidSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/DroidSerif-Regular-webfont.woff') format('woff'), url('fonts/DroidSerif-Regular-webfont.ttf') format('truetype'), url('fonts/DroidSerif-Regular-webfont.svg#DroidSerifRegular') format('svg');
+  src: url('{{ "DroidSerif-Regular-webfont.eot" | image_url }}');
+  src: url('{{ "DroidSerif-Regular-webfont.eot" | image_url }}?#iefix') format('embedded-opentype'), url('{{ "DroidSerif-Regular-webfont.woff" | image_url }}') format('woff'), url('{{ "DroidSerif-Regular-webfont.ttf" | image_url }}') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSansRegular';
-  src: url('fonts/OpenSans-Regular-webfont.eot');
-  src: url('fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/OpenSans-Regular-webfont.woff') format('woff'), url('fonts/OpenSans-Regular-webfont.ttf') format('truetype'), url('fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+  src: url('{{ "OpenSans-Regular-webfont.eot" | image_url }}');
+  src: url('{{ "OpenSans-Regular-webfont.eot" | image_url }}?#iefix') format('embedded-opentype'), url('{{ "OpenSans-Regular-webfont.woff" | image_url }}') format('woff'), url('{{ "OpenSans-Regular-webfont.ttf" | image_url }}') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSansItalic';
-  src: url('fonts/OpenSans-Italic-webfont.eot');
-  src: url('fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/OpenSans-Italic-webfont.woff') format('woff'), url('fonts/OpenSans-Italic-webfont.ttf') format('truetype'), url('fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
+  src: url('{{ "OpenSans-Italic-webfont.eot" | image_url }}');
+  src: url('{{ "OpenSans-Italic-webfont.eot" | image_url }}#iefix') format('embedded-opentype'), url('{{ "OpenSans-Italic-webfont.woff" | image_url }}') format('woff'), url('{{ "OpenSans-Italic-webfont.ttf" | image_url }}') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSansSemibold';
-  src: url('fonts/OpenSans-Semibold-webfont.eot');
-  src: url('fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/OpenSans-Semibold-webfont.woff') format('woff'), url('fonts/OpenSans-Semibold-webfont.ttf') format('truetype'), url('fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
+  src: url('{{ "OpenSans-Semibold-webfont.eot" | image_url }}');
+  src: url('{{ "OpenSans-Semibold-webfont.eot" | image_url }}?#iefix') format('embedded-opentype'), url('{{ "OpenSans-Semibold-webfont.woff" | image_url }}') format('woff'), url('{{ "OpenSans-Semibold-webfont.ttf" | image_url }}') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -2510,7 +2503,7 @@ html {
   background-color: transparent;
 }
 body {
-  background: url(../images/background.png) no-repeat top center #235a9f;
+  background: url('{{ "background.png" | image_url }}') no-repeat top center #235a9f;
   font-family: 'DroidSerifRegular';
   color: #404040;
 }
@@ -2747,14 +2740,14 @@ textarea {
   height: 17px;
   right: -10px;
   top: 7px;
-  background: url(../images/alert-point-alt.png) 0 0 no-repeat;
+  background: url('{{ "alert-point-alt.png" | image_url }}') 0 0 no-repeat;
 }
 .meta {
   width: 100%;
   float: left;
   position: relative;
   clear: left;
-  background: url(../images/split.png) repeat-x #e8e8e8;
+  background: url('{{ "../images/split.png" | image_url }}') repeat-x #e8e8e8;
   border-top: 1px solid #fdfdfd;
   color: #808080;
   font-size: 12px;
@@ -2837,19 +2830,19 @@ footer p {
 }
 .actions .action-like,
 .actions .like-link {
-  background: url(../images/button-like.png) 0 2px no-repeat;
+  background: url('{{ "button-like.png" | image_url }}') 0 2px no-repeat;
 }
 .actions .action-like:hover,
 .actions .like-link:hover {
   cursor: pointer;
-  background: url(../images/button-like-hover.png) 0 2px no-repeat;
+  background: url('{{ "button-like-hover.png" | image_url }}') 0 2px no-repeat;
 }
 .actions .action-discuss {
-  background: url(../images/button-discuss.png) 0 3px no-repeat;
+  background: url('{{ "button-discuss.png" | image_url }}') 0 3px no-repeat;
   color: #808080;
 }
 .actions .action-discuss:hover {
-  background: url(../images/button-discuss-hover.png) 0 3px no-repeat;
+  background: url('{{ "button-discuss-hover.png" | image_url }}') 0 3px no-repeat;
 }
 .actions span.on {
   *height: 30px;
@@ -2857,7 +2850,7 @@ footer p {
   position: relative;
   margin: 5px 10px;
   padding-left: 22px;
-  background: url(../images/button-like-hover.png) 0 2px no-repeat;
+  background: url('{{ "button-like-hover.png" | image_url }}') 0 2px no-repeat;
 }
 .action-like,
 .like-link {
@@ -2866,14 +2859,14 @@ footer p {
   position: relative;
   margin: 5px 10px;
   padding-left: 22px;
-  background: url(../images/button-like.png) 0 2px no-repeat;
+  background: url('{{ "button-like.png" | image_url }}') 0 2px no-repeat;
 }
 .action-like:hover,
 .like-link:hover,
 .like-link.on,
 .action-like.on {
   cursor: pointer;
-  background: url(../images/button-like-hover.png) 0 2px no-repeat;
+  background: url('{{ "button-like-hover.png" | image_url }}') 0 2px no-repeat;
 }
 #user-bar {
   float: left;
@@ -3004,8 +2997,6 @@ time#expires-at {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  -webkit-box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.9);
   box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.9);
   width: auto;
   margin: 5px auto;
@@ -3040,12 +3031,10 @@ time#expires-at span.countdown_row span.countdown_section span.countdown_amount 
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
-  background-image: -moz-linear-gradient(top, #383838, #000000);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #383838), color-stop(1, #000000));
-  text-shadow: 0 -1px 1px #000000;
+  background-image: -moz-linear-gradient(top, #383838, black);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #383838), color-stop(1, black));
+  text-shadow: 0 -1px 1px black;
   min-width: 44px;
   text-align: center;
   margin-bottom: 5px;
@@ -3102,8 +3091,6 @@ span.countdown_row {
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: #ffffff;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .auth li a:hover {
@@ -3115,7 +3102,7 @@ span.countdown_row {
   left: 5px;
   width: 21px;
   height: 21px;
-  background: url(../images/shapes.png);
+  background: url('{{ "shapes.png" | image_url }}');
 }
 .auth li.twitter a {
   background: #3B9FCE;
@@ -3200,7 +3187,7 @@ span.countdown_row {
 .alert-message.tip i {
   width: 17px;
   height: 10px;
-  background: url(../images/alert-point.png) no-repeat;
+  background: url('{{ "alert-point.png" | image_url }}') no-repeat;
   display: block;
   position: absolute;
   right: 115px;
@@ -3257,16 +3244,6 @@ span.countdown_row {
 h1.show {
   cursor: pointer;
   color: #9f6823;
-}
-#new-idea fieldset .checkarea {
-  color: #f5f5f5;
-  margin-top: 12px;
-  float: left;
-  font-family: 'OpenSansRegular';
-}
-#new-idea fieldset .checkarea input {
-  width: auto;
-  margin-right: 10px;
 }
 #comments-form .checkarea {
   margin-top: 12px;
@@ -3371,25 +3348,23 @@ h1.show {
   border-radius: 4px;
 }
 #filters ul li a.all {
-  background: url(../images/icon-all.png) 5px center no-repeat;
+  background: url('{{ "icon-all.png" | image_url }}') 5px center no-repeat;
 }
 #filters ul li a.mine {
-  background: url(../images/icon-mine.png) 6px center no-repeat;
+  background: url('{{ "icon-mine.png" | image_url }}') 6px center no-repeat;
 }
 #filters ul li a.popular {
-  background: url(../images/icon-popular.png) 6px center no-repeat;
+  background: url('{{ "icon-popular.png" | image_url }}') 6px center no-repeat;
 }
 #filters ul li a.active,
 #filters ul li a:hover {
-  -webkit-box-shadow: inset 0 0 4px #adadad;
-  -moz-box-shadow: inset 0 0 4px #adadad;
   box-shadow: inset 0 0 4px #adadad;
 }
 #filters .rss {
   float: right;
   position: relative;
   padding-left: 20px;
-  background: url(../images/icon-feed.png) 6px center no-repeat;
+  background: url('{{ "icon-feed.png" | image_url }}') 6px center no-repeat;
 }
 label.error {
   color: #d4903b;
@@ -3440,7 +3415,7 @@ label.error {
   margin: 0 20px 0 0;
 }
 .logged-out .action-like:hover {
-  background: url(../images/button-like.png) 0 2px no-repeat;
+  background: url('{{ "button-like.png" | image_url }}') 0 2px no-repeat;
   cursor: default;
 }
 #emailCaptureModal {
@@ -3462,4 +3437,17 @@ label.error {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
+}
+#new-idea fieldset .checkarea {
+  color: #f5f5f5;
+  margin-top: 12px;
+  float: left;
+  font-family: 'OpenSansRegular';
+}
+#new-idea fieldset .checkarea input {
+  width: auto;
+  margin-right: 10px;
+}
+#new-idea fieldset .checkarea label {
+  color: #f5f5f5;
 }
