@@ -1,0 +1,14 @@
+{
+  "name": "rusic-theme-ideas",
+  "description": "Free theme to create and share ideas.",
+  "devDependencies": {
+    "gulp-concat": "^2.5.2",
+    "gulp-less": "^3.0.3",
+    "gulp-plumber": "^1.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-watch": "^4.2.4",
+    "gulp": "^3.8.11"
+  },
+  "author": "Simpleweb",
+}

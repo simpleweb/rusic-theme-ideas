@@ -1,8 +1,3 @@
-{% if env == "development" %}
-  {% assign asset_url="http://127.0.0.1:8080/rusic-theme-ideas/public" %}
-{% else %}
-  {% assign asset_url="https://s3.amazonaws.com/rusic-ideas-theme" %}
-{% endif %}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
@@ -37,14 +32,11 @@
     {% endif %}
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset_url }}/stylesheets/ideas.css">
+    <link rel="stylesheet" href="{{ 'ideas.css' | stylesheet_url }}">
 
     <!-- Scripts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     {{ content_for_header }}
-    <script src="/assets/jquery.countdown.min.js"></script>
-    <script src="{{ asset_url }}/javascripts/jquery.validate.min.js"></script>
-    <script src="{{ asset_url }}/javascripts/scripts.js"></script>
 
     <!-- Fav & touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -124,7 +116,11 @@
                 <fieldset>
                     <input class="span4 required" id="idea_title" name="idea[title]" type="text" placeholder="{{theme.idea_context | capitalize}} title">
                     <div class="input"><textarea id="idea_content" name="idea[content]" rows="3" placeholder="Your {{theme.idea_context}}" class="required"></textarea></div>
-                    <div class="checkarea"><input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this {{theme.idea_context}} to {{ current_user.provider }}?</div>
+                    <div class="checkarea">
+                        <label style="width:auto;">
+                            <input type="checkbox" name="idea[should_post_to_social]" value="1" checked />share this {{theme.idea_context}} to {{ current_user.provider }}?
+                        </label>
+                    </div>
                     <input type="submit" value="add {{theme.idea_context}}" class="btn primary submit" />
                 </fieldset>
             </div>
@@ -139,7 +135,7 @@
                 <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
                 <a class="addthis_button_tweet" tw:count="vertical" tw:via="RusicHQ"></a>
                 <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f0c4de422db2f2f"></script>
+                <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f0c4de422db2f2f"></script>
             </div>
 
         </div> <!-- /wrapper -->
@@ -162,7 +158,12 @@
         </form>
       </div>
     {% endif %}
-    
+
+    <script src="{{ 'jquery-1-7.js' | javascript_url }}"></script>
+    <script src="{{ 'jquery-countdown-min.js' | javascript_url }}"></script>
+    <script src="{{ 'jquery-validate.js' | javascript_url }}"></script>
+    <script src="{{ 'scripts.js' | javascript_url }}"></script>
+
 </body>
 
 </html>

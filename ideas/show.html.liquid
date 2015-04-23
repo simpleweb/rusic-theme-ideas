@@ -62,7 +62,11 @@
             <h3>add a {{theme.comment_context}}</h3>
             <form action="{{idea.permalink}}/comments" method="post">
                 <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
-                <div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
+                <div class="checkarea">
+                    <label style="width:auto;">
+                        <input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?
+                    </label>
+                </div>
                 <br/><br/><br/>
                 <div class="checkarea">
                 {% assign subscription = idea.subscription %}
