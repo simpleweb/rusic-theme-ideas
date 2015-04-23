@@ -37,9 +37,6 @@
     <!-- Scripts -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     {{ content_for_header }}
-    <script src="/assets/jquery.countdown.min.js"></script>
-    <script src="{{ asset_url }}/javascripts/jquery.validate.min.js"></script>
-    <script src="{{ asset_url }}/javascripts/scripts.js"></script>
 
     <!-- Fav & touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -161,7 +158,12 @@
         </form>
       </div>
     {% endif %}
-    
+
+    <script src="{{ 'jquery-1-7.js' | javascript_url }}"></script>
+    <script src="{{ 'jquery-countdown-min.js' | javascript_url }}"></script>
+    <script src="{{ 'jquery-validate.js' | javascript_url }}"></script>
+    <script src="{{ 'scripts.js' | javascript_url }}"></script>
+
 </body>
 
 </html>
