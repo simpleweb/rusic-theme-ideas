@@ -24,37 +24,41 @@
         {% endif %}
       </div>
 
-    {% if idea.interested_users != empty %}
+    {% if idea.interested_participants != empty %}
     <div class="interest">
       <h3>people interested in this {{theme.idea_context}}:</h3>
       <ul class="interested-people">
-      {% for user in idea.interested_users %}
-        <li><a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile"><img src="{{ user.image_url }}" alt="{{ user.nickname }}" width="40" height="40" class="avatar" /></a></li>
-      {% endfor %}
+        {% for user in idea.interested_participants %}
+            <li>
+              <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
+                <img src="{{ user.image_url }}" alt="{{ user.nickname }}" width="40" height="40" class="avatar" />
+              </a>
+            </li>
+        {% endfor %}
       </ul>
     </div>
     {% endif %}
 
     <div class="meta">
-      <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}"><img src="{{idea.user.image_url}}" alt="avatar for {{user.nickname}}" width="25" height="25" class="avatar" /></a>
-      <span class="author">by <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}">{{ idea.user.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
-      <div class="actions">
-        <ul>
-          {% if idea.liked? %}
-          <li class="first"><span class="action-like on">{{theme.like_context}} <strong>({{ idea.likes }})</strong></span></li>
-          {% else %}
-          <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> {{theme.like_context}} <strong class="likecount">({{idea.likes}})</strong></div></li>
-          {% endif %}
-          <li class="last"><a href="{{ idea.permalink }}#comments" title="link to comments for {{idea.title}}" class="action-discuss">{{theme.comments_context}} <strong>({{ idea.comments_count }})</strong></a></li>
-        </ul>
-      </div>
+        <a href="{{idea.participant.image_url}}" title="link to {{idea.user.fname}} on {{idea.participant.provider}}"><img src="{{idea.participant.image_url}}" alt="avatar for {{%idea.participant.nickname%}}" width="25" height="25" class="avatar" /></a>
+        <span class="author">by <a href="{{idea.participant.profile_url}}" title="link to {{idea.participant.nickname}} on {{idea.participant.provider}}">{{ idea.participant.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
+        <div class="actions">
+            <ul>
+                {% if idea.liked? %}
+                <li class="first"><span class="action-like on">{{theme.like_context}} <strong>({{ idea.likes }})</span></li>
+                {% else %}
+                <li class="first"><div class="action-like" the_link="{{idea.like_link}}"> {{theme.like_context}} <strong class="likecount">({{idea.likes}})</strong></div></li>
+                {% endif %}
+                <li class="last"><a href="#comments" title="link to comments for {{idea.title}}" class="action-discuss">{{theme.comments_context}} <strong>({{ idea.comments_count }})</strong></a></li>
+            </ul>
+        </div>
     </div>
     <span class="comment-count"><a href="{{idea.like_link}}" data-method="post">{{ idea.likes }}</a><br /><span class="like-label">{{theme.likes_context}}</span></span>
     </div>
 
   {% endfor %}
   {% else %}
-  
+
   <div class="empty">
     <h1>Nobody has posted anything here yet!</h1>
     {% if current_user %}

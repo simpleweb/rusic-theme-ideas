@@ -1,0 +1,9 @@
+homepage-link:
+  value: ""
+  help_text: "Link to your landing page"
+twitter-link:
+  value: ""
+  help_text: "Link to your Twitter page"
+facebook-link:
+  value: ""
+  help_text: "Link to your Facebook page"

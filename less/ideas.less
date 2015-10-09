@@ -75,13 +75,13 @@ html {
 }
 
 body {
-    background: url('{{ "background.png" | image_url }}') no-repeat top center @baseColor;
-    font-family: 'DroidSerifRegular';
+    background-color: @background;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     color: @grayDark;
 }
 
 h1, h2, h3, h4, h5, .meta, #filters {
-    font-family: 'OpenSansRegular';
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 p {
@@ -96,32 +96,35 @@ textarea { resize: vertical; }
 #wrapper {
     width: 520px;
     float: left; position: relative;
-    background: @white;
-    padding: 30px;
-    border: 1px solid darken(@baseColor, 10%);
+    // background: @white;
+    padding: 0 30px;
     border-radius: (4px);
-    box-shadow: 0 0 1px rgba(255,255,255,.8);
+    // box-shadow: 0 0 1px rgba(255,255,255,.8);
 }
 
 #mast { width: 522px;
-    margin: 30px 0 0 0; padding: 0 30px 0 30px; text-align: center;
+    margin: 10px 0 0 0; padding: 0 30px 0 30px; text-align: center;
     h1 { display: inline-block; padding: 10px 15px; border-bottom: 2px solid darken(@baseColor, 15%); color: @white; font-size: 2.5em; text-transform: uppercase; font-weight: normal;
         a { color: @white; }
     }
-    .description { color: @neutral; padding: 0 50px 0 50px; }
+    .description { color: #444; padding: 0 50px 0 50px;}
     #user-actions { width: 100%; float: left; clear: left; position: relative; padding: 10px 0 0 0; border-top: 1px dotted darken(@baseColor, 12%); color: @white; }
     .loggedin { margin-bottom: 20px; }
     #navigation { float: right; position: relative; }
 }
 
+.social-nav {
+  margin: 0 0 20px 0;
+}
+
 .entry {
     width: 520px; float: left; position: relative; clear: left; border-radius: (3px); border: 1px solid darken(@neutral, 10%);
-    background: @neutral;
+    background: @white;
     h1 { margin: 25px 20px 30px 20px; padding: 0 85px 0 0; font-size: 2.5em; font-weight: normal; }
     .content { margin: 15px 20px; }
-    .interest { width: 480px; margin: 0 20px 10px 20px; border-top: 2px solid @complement; }
-    #comments { margin: 15px 20px; padding: 0; border-top: 2px solid @complement; }
-    .comment-count { width: 55px; height: 40px; padding: 18px 5px 20px 5px; position: absolute; top: -5px; right: 12px; background: @baseColor; font-size: 25px; text-align: center; color: @white;  box-shadow: 0 2px 0 darken(@neutral, 18%);
+    .interest { width: 480px; margin: 0 20px 10px 20px; border-top: 2px solid #444; }
+    #comments { margin: 15px 20px; padding: 0; border-top: 2px solid #444; }
+    .comment-count { width: 55px; height: 40px; padding: 18px 5px 20px 5px; position: absolute; top: -5px; right: 12px; background: @background; font-size: 25px; text-align: center; color: @white;  box-shadow: 0 2px 0 darken(@neutral, 18%);
     a { color: @white; }}
 }
 
@@ -147,7 +150,7 @@ textarea { resize: vertical; }
     }
 }
 
-#comments-auth { width: 480px; float: left; position: relative; clear: left; margin: 30px 0 15px 0; padding: 0; border-top: 2px solid @complement;
+#comments-auth { width: 480px; float: left; position: relative; clear: left; margin: 30px 0 15px 0; padding: 0; border-top: 2px solid #444;
     h3 { margin-bottom: 5px; }
     .auth { margin: 0; padding: 0;
         li { width: auto; float: left; position: relative; clear: none; margin: 0 0 0 5px; padding: 0; border: none; }
@@ -173,7 +176,7 @@ header, footer {
 
 footer {
     clear: left; width: 100%;
-    p { text-align: center; }
+    p { text-align: center; text-shadow: 1px 0.5px 0px #000;}
 }
 
 .actions {
@@ -193,10 +196,16 @@ footer {
 .action-like, .like-link { *height: 30px; float: left; position: relative; margin: 5px 10px; padding-left: 22px; background: url('{{ "button-like.png" | image_url }}') 0 2px no-repeat; }
 .action-like:hover, .like-link:hover, .like-link.on, .action-like.on { cursor: pointer; background: url('{{ "button-like-hover.png" | image_url }}') 0 2px no-repeat; }
 
+.app-nav {
+  padding-bottom: 10px;
+}
+
 #user-bar {
-    float: left; position: relative; text-align: left;
-    .avatar { float: left; position: relative; margin: 0 10px 0 0; }
+    font-size: 40px; line-height: 40px;
+    font-weight: 200;
+    .avatar { float: left; position: relative; margin: 5px 10px 0 0; }
     #welcome-message { float: left; position: relative; margin: 5px 0 0 0; }
+    .authenticated { font-size: 20px; line-height: 20px; }
 }
 
 .avatar { border-radius: (2px); }
@@ -210,19 +219,19 @@ body.ideas-show {
 }
 
 #comments-form { width: 480px;
-    float: left; position: relative; clear: left; margin: 20px 0 0 0; padding: 0 0 0 0; border-top: 2px solid @complement;
+    float: left; position: relative; clear: left; margin: 20px 0 0 0; padding: 0 0 0 0; border-top: 2px solid #444;
     h3 { margin-bottom: 5px; }
     fieldset { margin: 0; padding: 0; }
     label { text-align: left; }
     textarea { width: 470px; height: 100px; margin-left: 0; }
-    .input { margin-left: 0; }
+    .input { margin-left: 0; margin-bottom: 10px; }
     .btn { float: right; position: relative; margin: 0 0 10px 0; }
     }
 
     .like-label { font-size: .5em; }
 
 #new-idea {
-    margin: 0 0 20px 0; float: left; position: relative; clear: left; padding: 0 0 20px 0; background: darken(@baseColor, 10%); border: 1px solid darken(@baseColor, 15%); box-shadow: 0 0 1px rgba(255,255,255,.3); border-radius: (4px);
+    margin: 0 0 20px 0; float: left; position: relative; clear: left; padding: 0 0 20px 0; background: @neutral; box-shadow: 0 0 1px rgba(255,255,255,.3); border-radius: (4px);
     h3 { *width: 450px; margin: 20px 30px 0 30px; padding: 0; line-height: 1em; font-size: 1.5em; font-weight: normal; color: lighten(@complement, 15%); }
     fieldset { margin: 0 30px 0 30px;
         input { width: 510px; margin: 0;  }
@@ -233,7 +242,7 @@ body.ideas-show {
 
 .breadcrumb {
     font-family: 'OpenSansRegular';
-    font-size: 11px;
+    font-size: 16px;
 }
 
 footer {
@@ -312,11 +321,11 @@ span.countdown_row {
   }
 
 
-  .auth { float: right; list-style-type: none; padding: 0;
+  .auth { display: inline-block; list-style-type: none; padding: 0; margin: 10px auto;
       li { float: left; position: relative; margin: 0 0 4px 5px; padding: 0;
-          a { float: left; position: relative; display: block; padding: 6px 10px 5px 32px !important; .border-radius(3px); color: @white; box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+          a { float: left; position: relative; display: block; padding: 10px 15px 10px 40px !important; .border-radius(3px); color: @white; box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
               &:hover { text-decoration: none; }
-              span { position: absolute; top: 5px; left: 5px; width: 21px; height: 21px; background: url('{{ "shapes.png" | image_url }}');  }}
+              span { position: absolute; top: 9px; left: 15px; width: 21px; height: 21px; background: url('{{ "shapes.png" | image_url }}');  }}
           &.twitter a { background: #3B9FCE; #gradient > .vertical(#3B9FCE, #3183AA); border: 1px solid #2A779B; border-bottom: 2px solid #2A779B;
               &:hover { background: #62B2D7; #gradient > .vertical(#62B2D7, #3183AA); }
               span { background-position: 0; }}
@@ -364,7 +373,7 @@ span.countdown_row {
 
 h1.show {
     cursor: pointer;
-    color: @complement;
+    color: #444444;
 }
 
 #comments-form .checkarea { margin-top: 12px; float: left; font-family: 'OpenSansRegular';
@@ -390,7 +399,6 @@ h1.show {
   .border-radius(4px);
   padding: 10px 12px 0 12px;
   text-align: center;
-  border: 1px solid darken(@baseColor, 10%);
   box-shadow: 0 0 1px rgba(255,255,255,.8);
 
   a { float: left; position: relative; clear: left; margin-bottom: 6px; }
@@ -408,7 +416,6 @@ top: -38px;
   width: 492px;
   float: left;
   position: relative;
-  margin: 0 0 20px 0;
   padding: 7px 14px;
   #gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%));
   border: 1px solid darken(@neutral, 10%);
@@ -539,4 +546,52 @@ label.error {
 #new-idea fieldset .checkarea { color: @neutral; margin-top: 12px; float: left; font-family: 'OpenSansRegular';
     input { width: auto; margin-right: 10px; }
     label { color: @neutral; }
+}
+
+.button {
+    border: none;
+    background-color: #CCC;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 300;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    border-bottom: solid 8px #000;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin: 0;
+}
+
+.button--twitter {
+    background-color: #5EA9DD;
+    color: #FFF;
+    border-bottom-color: #2a85c5;
+}
+
+.button--small {
+    border-bottom-width: 4px;
+    padding: .4em .4em;
+    line-height: 1;
+}
+
+.button--small:active {
+    margin-top: 2px;
+    border-bottom-width: 2px;
+}
+
+.button--facebook {
+    background-color: #3B579D;
+    color: #FFF;
+    border-bottom-color: #263865;
+}
+
+.header-img {
+  max-width: 100%;
+}
+
+.small {
+  width: 125px;
 }
