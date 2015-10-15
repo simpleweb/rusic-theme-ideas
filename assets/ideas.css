@@ -2503,7 +2503,7 @@ html {
   background-color: transparent;
 }
 body {
-  background-color: #55ebd2;
+  background: url("{{ 'background.png' | asset_url }}") no-repeat top center #235a9f;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #404040;
 }
@@ -2612,7 +2612,7 @@ textarea {
   position: absolute;
   top: -5px;
   right: 12px;
-  background: #55ebd2;
+  background: #235a9f;
   font-size: 25px;
   text-align: center;
   color: #ffffff;
