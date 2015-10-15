@@ -2885,7 +2885,7 @@ footer p {
 #user-bar #welcome-message {
   float: left;
   position: relative;
-  margin: 5px 0 0 0;
+  margin: 5px 0 10px 0;
 }
 #user-bar .authenticated {
   font-size: 20px;
@@ -3456,7 +3456,7 @@ label.error {
   margin-right: 10px;
 }
 #new-idea fieldset .checkarea label {
-  color: #f5f5f5;
+  color: #000;
 }
 .button {
   border: none;
