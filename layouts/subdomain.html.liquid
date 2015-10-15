@@ -93,15 +93,13 @@
                     <div id="welcome-message" class="authenticated">Hey! welcome back <strong>{{current_user.nickname}}</strong> <a href="/auth/signout">(logout)</a></div>
                 </div>
 
-                  {% if current_user.nickname == 'OLIO_ex' %}
-                    <nav id="navigation">
-                        <a title="Add new {{theme.idea_context}} to {{space.title}}" class="btn primary showbtn">+ add new {{theme.idea_context}}</a>
-                    </nav>
-                  {% endif %}
+                <nav id="navigation">
+                    <a title="Add new {{theme.idea_context}} to {{space.title}}" class="btn primary showbtn">+ add new {{theme.idea_context}}</a>
+                </nav>
                 {% else %}
                 <!-- Logged out user bar -->
                 <div id="user-bar">
-                    <div id="welcome-message">Hey stranger! <strong>Login to vote</strong> on where to launch Olio next</div>
+                    <div id="welcome-message">Hey stranger! Login to get involved</div>
                 </div>
 
                 <ul class="auth">
