@@ -57,16 +57,7 @@
 
         <!-- Header -->
         <header id="mast">
-            <div class="social-nav pull-right">
-              Follow us on:
-              <a href="{{ space.twitter_link }}" class="button button--small button--twitter">
-                <img width="22" height="17" src="{{ 'icon-twitter-white.png' | image_url }}" alt="Twitter">
-              </a>
-              <a href="{{ space.facebook_link }}" class="button button--small button--facebook">
-                <img width="22" height="17" src="{{ 'icon-facebook-white.png' | image_url }}" alt="Facebook">
-              </a>
-            </div>
-            <a href="{{ space.homepage_link }}"><img src="{{ space.logo_image }}" alt="Logo" class="header-img"></a>
+            <h1><a href="{{ space.homepage_link }}">{{space.title}}</a></h1>
 
             <div class="description">
                 {{space.summary | markdown}}
@@ -86,11 +77,6 @@
             {{ notice }}
             </div>
             {% endif %}
-
-            <div class="app-nav">
-              <a href="{{ space.appstore_link }}"><img src="{{ space.appstore_image }}" alt="Download Olio in the appstore" class="small"></a>
-              <a href="{{ space.playstore_link }}"><img src="{{ space.playstore_image }}" alt="Download Olio in the Google Playstore" class="small"></a>
-            </div>
 
             {% if space.expires_at %}
               <div id="timer">
