@@ -1753,7 +1753,7 @@ a.menu:after,
   display: block;
 }
 .breadcrumb {
-  margin: 0 0 20px;
+  margin: 0 -2px 0 0;
   padding: 7px 14px;
   background-color: #f5f5f5;
   background-repeat: repeat-x;
@@ -2503,8 +2503,8 @@ html {
   background-color: transparent;
 }
 body {
-  background: url('{{ "background.png" | image_url }}') no-repeat top center #235a9f;
-  font-family: 'DroidSerifRegular';
+  background: url("{{ 'background.png' | asset_url }}") no-repeat top center #235a9f;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #404040;
 }
 h1,
@@ -2514,7 +2514,7 @@ h4,
 h5,
 .meta,
 #filters {
-  font-family: 'OpenSansRegular';
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 p {
   margin-bottom: 18px;
@@ -2533,15 +2533,12 @@ textarea {
   width: 520px;
   float: left;
   position: relative;
-  background: #ffffff;
-  padding: 30px;
-  border: 1px solid #1a4275;
+  padding: 0 30px;
   border-radius: 4px;
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
 }
 #mast {
   width: 522px;
-  margin: 30px 0 0 0;
+  margin: 10px 0 0 0;
   padding: 0 30px 0 30px;
   text-align: center;
 }
@@ -2551,14 +2548,13 @@ textarea {
   border-bottom: 2px solid #153760;
   color: #ffffff;
   font-size: 2.5em;
-  text-transform: uppercase;
   font-weight: normal;
 }
 #mast h1 a {
   color: #ffffff;
 }
 #mast .description {
-  color: #f5f5f5;
+  color: #fff;
   padding: 0 50px 0 50px;
 }
 #mast #user-actions {
@@ -2577,6 +2573,9 @@ textarea {
   float: right;
   position: relative;
 }
+.social-nav {
+  margin: 0 0 20px 0;
+}
 .entry {
   width: 520px;
   float: left;
@@ -2584,7 +2583,7 @@ textarea {
   clear: left;
   border-radius: 3px;
   border: 1px solid #dcdcdc;
-  background: #f5f5f5;
+  background: #ffffff;
 }
 .entry h1 {
   margin: 25px 20px 30px 20px;
@@ -2598,12 +2597,12 @@ textarea {
 .entry .interest {
   width: 480px;
   margin: 0 20px 10px 20px;
-  border-top: 2px solid #9f6823;
+  border-top: 2px solid #444;
 }
 .entry #comments {
   margin: 15px 20px;
   padding: 0;
-  border-top: 2px solid #9f6823;
+  border-top: 2px solid #444;
 }
 .entry .comment-count {
   width: 55px;
@@ -2705,7 +2704,7 @@ textarea {
   clear: left;
   margin: 30px 0 15px 0;
   padding: 0;
-  border-top: 2px solid #9f6823;
+  border-top: 2px solid #444;
 }
 #comments-auth h3 {
   margin-bottom: 5px;
@@ -2787,6 +2786,7 @@ footer {
 }
 footer p {
   text-align: center;
+  text-shadow: 1px 0.5px 0px #000;
 }
 .actions ul {
   float: left;
@@ -2868,20 +2868,27 @@ footer p {
   cursor: pointer;
   background: url('{{ "button-like-hover.png" | image_url }}') 0 2px no-repeat;
 }
+.app-nav {
+  padding-bottom: 10px;
+}
 #user-bar {
-  float: left;
-  position: relative;
-  text-align: left;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 200;
 }
 #user-bar .avatar {
   float: left;
   position: relative;
-  margin: 0 10px 0 0;
+  margin: 5px 10px 0 0;
 }
 #user-bar #welcome-message {
   float: left;
   position: relative;
-  margin: 5px 0 0 0;
+  margin: 5px 0 10px 0;
+}
+#user-bar .authenticated {
+  font-size: 20px;
+  line-height: 20px;
 }
 .avatar {
   border-radius: 2px;
@@ -2905,7 +2912,7 @@ body.ideas-show .meta {
   clear: left;
   margin: 20px 0 0 0;
   padding: 0 0 0 0;
-  border-top: 2px solid #9f6823;
+  border-top: 2px solid #444;
 }
 #comments-form h3 {
   margin-bottom: 5px;
@@ -2924,6 +2931,7 @@ body.ideas-show .meta {
 }
 #comments-form .input {
   margin-left: 0;
+  margin-bottom: 10px;
 }
 #comments-form .btn {
   float: right;
@@ -2939,8 +2947,7 @@ body.ideas-show .meta {
   position: relative;
   clear: left;
   padding: 0 0 20px 0;
-  background: #1a4275;
-  border: 1px solid #153760;
+  background: #f5f5f5;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
   border-radius: 4px;
 }
@@ -2971,7 +2978,7 @@ body.ideas-show .meta {
 }
 .breadcrumb {
   font-family: 'OpenSansRegular';
-  font-size: 11px;
+  font-size: 16px;
 }
 footer {
   margin: 0 0 20px 0;
@@ -3072,9 +3079,10 @@ span.countdown_row {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9f6823', endColorstr='#754d1a', GradientType=0);
 }
 .auth {
-  float: right;
+  display: inline-block;
   list-style-type: none;
   padding: 0;
+  margin: 10px auto;
 }
 .auth li {
   float: left;
@@ -3086,7 +3094,7 @@ span.countdown_row {
   float: left;
   position: relative;
   display: block;
-  padding: 6px 10px 5px 32px !important;
+  padding: 10px 15px 10px 40px !important;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -3098,8 +3106,8 @@ span.countdown_row {
 }
 .auth li a span {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 9px;
+  left: 15px;
   width: 21px;
   height: 21px;
   background: url('{{ "shapes.png" | image_url }}');
@@ -3243,7 +3251,7 @@ span.countdown_row {
 }
 h1.show {
   cursor: pointer;
-  color: #9f6823;
+  color: #444444;
 }
 #comments-form .checkarea {
   margin-top: 12px;
@@ -3287,7 +3295,6 @@ h1.show {
   border-radius: 4px;
   padding: 10px 12px 0 12px;
   text-align: center;
-  border: 1px solid #1a4275;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
 }
 #share-page a {
@@ -3308,7 +3315,6 @@ h1.show {
   width: 492px;
   float: left;
   position: relative;
-  margin: 0 0 20px 0;
   padding: 7px 14px;
   background-color: #e6e6e6;
   background-repeat: no-repeat;
@@ -3449,5 +3455,46 @@ label.error {
   margin-right: 10px;
 }
 #new-idea fieldset .checkarea label {
-  color: #f5f5f5;
+  color: #000;
+}
+.button {
+  border: none;
+  background-color: #CCC;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  border-bottom: solid 8px #000;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin: 0;
+}
+.button--twitter {
+  background-color: #5EA9DD;
+  color: #FFF;
+  border-bottom-color: #2a85c5;
+}
+.button--small {
+  border-bottom-width: 4px;
+  padding: .4em .4em;
+  line-height: 1;
+}
+.button--small:active {
+  margin-top: 2px;
+  border-bottom-width: 2px;
+}
+.button--facebook {
+  background-color: #3B579D;
+  color: #FFF;
+  border-bottom-color: #263865;
+}
+.header-img {
+  max-width: 100%;
+}
+.small {
+  width: 125px;
 }

@@ -6,8 +6,8 @@
     <h1>{{idea.title}}</h1>
 
     <div class="meta">
-        <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}"><img src="{{idea.user.image_url}}" alt="avatar for {{%idea.user%}}" width="25" height="25" class="avatar" /></a>
-        <span class="author">by <a href="{{idea.user.profile_url}}" title="link to {{idea.user.nickname}} on {{idea.user.provider}}">{{ idea.user.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
+        <a href="{{idea.participant.image_url}}" title="link to {{idea.user.fname}} on {{idea.participant.provider}}"><img src="{{idea.participant.image_url}}" alt="avatar for {{%idea.participant.nickname%}}" width="25" height="25" class="avatar" /></a>
+        <span class="author">by <a href="{{idea.participant.profile_url}}" title="link to {{idea.participant.nickname}} on {{idea.participant.provider}}">{{ idea.participant.nickname }}</a> {{ idea.created_at | human_time_distance }} ago</span>
         <div class="actions">
             <ul>
                 {% if idea.liked? %}
@@ -27,11 +27,11 @@
         {% endif %}
     </div>
 
-    {% if idea.interested_users != empty %}
+    {% if idea.interested_participants != empty %}
     <div class="interest">
         <h3>people interested in this:</h3>
         <ul class="interested-people">
-        {% for user in idea.interested_users %}
+        {% for user in idea.interested_participants %}
             <li>
               <a href="{{ user.profile_url }}" title="{{ user.nickname }}'s {{ user.provider }} profile">
                 <img src="{{ user.image_url }}" alt="{{ user.nickname }}" width="40" height="40" class="avatar" />
@@ -62,11 +62,25 @@
             <h3>add a {{theme.comment_context}}</h3>
             <form action="{{idea.permalink}}/comments" method="post">
                 <div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
-                <div class="checkarea">
-                    <label style="width:auto;">
-                        <input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?
-                    </label>
-                </div>
+                Share this idea:
+                <a
+                  href="https://twitter.com/intent/tweet?text={{ space.permalink }}"
+                  class="button button--small button--twitter" id="twitter-share">
+                  <img
+                    width="22"
+                    height="17"
+                    src="{{ 'icon-twitter-white.png' | image_url }}"
+                    alt="Twitter">
+                </a>
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u={{ space.permalink }}"
+                  class="button button--small button--facebook">
+                  <img
+                    width="22"
+                    height="17"
+                    src="{{ 'icon-facebook-white.png' | image_url }}"
+                    alt="Facebook">
+                </a>
                 <br/><br/><br/>
                 <div class="checkarea">
                 {% assign subscription = idea.subscription %}

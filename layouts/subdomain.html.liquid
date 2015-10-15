@@ -36,6 +36,11 @@
 
     <!-- Scripts -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script type="text/javascript">
+      if (window.location.hash && window.location.hash == '#_=_') {
+          window.location.hash = '';
+      }
+    </script>
     {{ content_for_header }}
 
     <!-- Fav & touch icons -->
@@ -52,7 +57,7 @@
 
         <!-- Header -->
         <header id="mast">
-            <h1><a href="{{space.permalink}}" title="link to {{space.title}} homepage">{{ space.title }}</a></h1>
+            <h1><a href="{{ space.homepage_link }}">{{space.title}}</a></h1>
 
             <div class="description">
                 {{space.summary | markdown}}
@@ -85,7 +90,7 @@
                 <!-- Logged in user bar -->
                 <div id="user-bar">
                     <img src="{{current_user.image_url}}" alt="Avatar for {{user.nickname}}" width="28" height="28" class="avatar" />
-                    <div id="welcome-message">Hey! welcome back <strong>{{current_user.nickname}}</strong> <a href="/auth/signout">(logout)</a></div>
+                    <div id="welcome-message" class="authenticated">Hey! welcome back <strong>{{current_user.nickname}}</strong> <a href="/auth/signout">(logout)</a></div>
                 </div>
 
                 <nav id="navigation">
@@ -94,7 +99,7 @@
                 {% else %}
                 <!-- Logged out user bar -->
                 <div id="user-bar">
-                    <div id="welcome-message">Hey stranger! login to get involved</div>
+                    <div id="welcome-message">Hey stranger! Login to get involved</div>
                 </div>
 
                 <ul class="auth">
@@ -102,9 +107,6 @@
                     <li class="facebook"><a href="/auth/facebook" class="button"><span></span>Facebook</a></li>
                 </ul>
 
-                <div class="alert-message tip login-prompt">
-                    <i></i><p>login with twitter or facebook to add new or {{theme.like_context}} {{theme.ideas_context}}</p>
-                </div>
                 {% endif %}
             </div>
         </header>
